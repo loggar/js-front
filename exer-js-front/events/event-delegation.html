@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title></title>
+</head>
+<body>
+	<div>
+		<h1>
+			<a href="#"> <span>Hello</span>
+			</a>
+		</h1>
+	</div>
+	<script type="text/javascript">
+		window.addEventListener("load", function() {
+			document.querySelector("div").addEventListener("click", function(e) {
+				if(e.target.nodeName === "SPAN") {
+					console.log("Click event fired on the SPAN element");
+				}
+			});
+			
+			/*
+			event_2_delegation.html:18 Click event fired on the SPAN element
+			*/
+		});
+	</script>
+</body>
+</html>

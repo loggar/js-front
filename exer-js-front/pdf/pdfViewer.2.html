@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<div id="container">
+		<object id="myfile" data="./myfile.pdf" type="application/pdf" width="100%">
+		</object>
+	</div>
+	<script type="text/javascript ">
+		$(document).ready(function () {
+			$('#container').attr('height', $(window).height() - 30);
+			$(window).resize(function () {
+				$('#container').attr('height', $(window).height() - 30);
+			});
+		});
+	</script>
+</body>
+
+</html>

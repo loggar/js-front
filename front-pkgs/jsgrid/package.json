@@ -1,0 +1,11 @@
+{
+	"name": "loggar_nodejs_jsgrid",
+	"version": "0.1.0",
+	"scripts": {
+		"dev": "lite-server"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"lite-server": "2.3.0"
+	}
+}

@@ -1,0 +1,7 @@
+@include media-context(('custom': 678px)) {
+    .my-component {
+        @include media(">phone", "<=custom") {
+            border-radius: 100%;
+        }
+    }
+}

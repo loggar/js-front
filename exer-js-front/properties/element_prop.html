@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<title></title>
+</head>
+<body>
+	<div>
+		<a href="page1.html" class="link classes_1" id="link_1">page1</a>
+		<input type="checkbox" name="inputCheck_1" id="inputCheck_1" />
+		<input type="text" name="inputText_1" id="inputText_1" value="abc123" />
+	</div>
+
+	<script type="text/javascript">
+(function($) {
+	console.log($("#link_1").prop("href"));
+	$("#link_1").prop("href", "page2.html");
+	console.log($("#link_1").prop("href"));
+	
+	console.log((typeof $("#inputCheck_1").prop("checked")) + " " +  $("#inputCheck_1").prop("checked"));
+	
+	console.log($("#inputText_1").prop("value"));
+	$("#inputText_1").prop("value", "abc456");
+	console.log($("#inputText_1").prop("value"));
+	
+	$("#inputText_1").prop("myCustomProperty", "someOfMyCustomPropertyValue");
+	console.log($("#inputText_1").prop("myCustomProperty"));
+	
+})(jQuery);
+	</script>
+</body>
+</html>

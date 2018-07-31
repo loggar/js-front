@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		/*
+		Both requests and responses may contain body data. A body is an instance of any of the following types:
+
+		ArrayBuffer
+		ArrayBufferView (Uint8Array and friends)
+		Blob/File
+		string
+		URLSearchParams
+		FormData
+
+		The Body mixin defines the following methods to extract a body (implemented by both Request and Response). These all return a promise that is eventually resolved with the actual content.
+
+		arrayBuffer()
+		blob()
+		json()
+		text()
+		formData()
+
+		This makes usage of non-textual data much easier than it was with XHR.
+
+		Request bodies can be set by passing body parameters:
+		*/
+		var form = new FormData(document.getElementById('login-form'));
+		fetch("/login", {
+			method: "POST",
+			body: form
+		});
+
+		/*
+		Both request and response (and by extension the fetch() function), will try to intelligently determine the content type.
+		A request will also automatically set a Content-Type header if none is set in the dictionary.
+		*/
+	</script>
+</body>
+
+</html>

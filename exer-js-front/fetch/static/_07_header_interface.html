@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		var content = "Hello World";
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "text/plain");
+		myHeaders.append("Content-Length", content.length.toString());
+		myHeaders.append("X-Custom-Header", "ProcessThisImmediately");
+
+		myHeaders = new Headers({
+			"Content-Type": "text/plain",
+			"Content-Length": content.length.toString(),
+			"X-Custom-Header": "ProcessThisImmediately",
+		});
+
+		/*
+		The contents can be queried and retrieved:
+		*/
+		console.log(myHeaders.has("Content-Type")); // true
+		console.log(myHeaders.has("Set-Cookie")); // false
+		myHeaders.set("Content-Type", "text/html");
+		myHeaders.append("X-Custom-Header", "AnotherValue");
+
+		console.log(myHeaders.get("Content-Length")); // 11
+		console.log(myHeaders.get("X-Custom-Header")); // ["ProcessThisImmediately", "AnotherValue"]
+
+		myHeaders.delete("X-Custom-Header");
+		console.log(myHeaders.get("X-Custom-Header")); // [ ]
+
+		/*
+		All of the Headers methods throw a TypeError if a header name is used that is not a valid HTTP Header name.
+		The mutation operations will throw a TypeError if there is an immutable guard (see below).
+		Otherwise they fail silently. For example:
+		*/
+		var myResponse = Response.error();
+		try {
+			myResponse.headers.set("Origin", "http://not-my-origin.com");
+		} catch (e) {
+			console.log("Cannot pretend to be a bank!");
+		}
+
+		/*
+		A good use case for headers is checking whether the content type is correct before you process it further. For example:
+		*/
+		fetch(myRequest).then(function (response) {
+			var contentType = response.headers.get("content-type");
+			if (contentType && contentType.includes("application/json")) {
+				return response.json();
+			}
+			throw new TypeError("Oops, we haven't got JSON!");
+		})
+			.then(function (json) { /* process your JSON further */ })
+			.catch(function (error) { console.log(error); });
+
+	</script>
+</body>
+
+</html>

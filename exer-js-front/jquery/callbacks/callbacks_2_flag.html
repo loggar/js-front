@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		/**
+		 * flags jQuery.Callbacks(flags)
+		 * 
+		 * once: Ensures the callback list can only be fired once (like a Deferred).
+		 * memory: Keeps track of previous values and will call any callback added after the list has been fired right away with the latest "memorized" values (like a Deferred).
+		 * unique: Ensures a callback can only be added once (so there are no duplicates in the list).
+		 * stopOnFalse: Interrupts callings when a callback returns false.
+		 */
+		(function($) {
+			function fn1(value) {
+				console.log(value);
+			}
+
+			function fn2(value) {
+				console.log("fn2 says: " + value);
+				return false;
+			}
+
+			var cbs_2 = $.Callbacks("once");
+			cbs_2.add(fn1);
+			cbs_2.fire("foo");
+			cbs_2.add(fn2);
+			cbs_2.fire("bar");
+			cbs_2.remove(fn2);
+			cbs_2.fire("foobar");
+
+			/*
+			 * output: foo
+			 */
+
+			var cbs_3 = $.Callbacks("memory");
+			cbs_3.add(fn1);
+			cbs_3.fire("foo");
+			cbs_3.add(fn2);
+			cbs_3.fire("bar");
+			cbs_3.remove(fn2);
+			cbs_3.fire("foobar");
+
+			/*
+			output:
+			foo
+			fn2 says:foo
+			bar
+			fn2 says:bar
+			foobar
+			 */
+
+			var cbs_4 = $.Callbacks("unique");
+			cbs_4.add(fn1);
+			cbs_4.fire("foo");
+			cbs_4.add(fn1); // Repeat addition
+			cbs_4.add(fn2);
+			cbs_4.fire("bar");
+			cbs_4.remove(fn2);
+			cbs_4.fire("foobar");
+
+			/*
+			output:
+			foo
+			bar
+			fn2 says:bar
+			foobar
+			 */
+
+			var cbs_5 = $.Callbacks("stopOnFalse");
+			cbs_5.add(fn1);
+			cbs_5.fire("foo");
+			cbs_5.add(fn2);
+			cbs_5.fire("bar");
+			cbs_5.remove(fn2);
+			cbs_5.fire("foobar");
+
+			/*
+			output:
+			foo
+			bar
+			foobar
+			 */
+
+			var cbs_6 = $.Callbacks("unique memory");
+			cbs_6.add(fn1);
+			cbs_6.fire("foo");
+			cbs_6.add(fn1); // Repeat addition
+			cbs_6.add(fn2);
+			cbs_6.fire("bar");
+			cbs_6.add(fn2);
+			cbs_6.fire("baz");
+			cbs_6.remove(fn2);
+			cbs_6.fire("foobar");
+
+			/*
+			output:
+			foo
+			fn2 says:foo
+			bar
+			fn2 says:bar
+			baz
+			fn2 says:baz
+			foobar
+			 */
+
+		})(jQuery);
+	</script>
+</body>
+</html>

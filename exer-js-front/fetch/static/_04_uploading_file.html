@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+
+<body>
+	<input type="file" />
+	<input type="button" value="Upload File" />
+	<script type="text/javascript">
+		document.querySelector("input[type='button']").addEventListener("click", function () {
+			var formData = new FormData();
+			var fileField = document.querySelector("input[type='file']");
+
+			formData.append('username', 'abc123');
+			formData.append('avatar', fileField.files[0]);
+
+			fetch('/ex-req', {
+				method: 'PUT',
+				body: formData
+			})
+				.then(response => response.json())
+				.catch(error => console.error('Error:', error))
+				.then(response => console.log('Success:', response));
+		});
+	</script>
+</body>
+
+</html>

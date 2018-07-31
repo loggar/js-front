@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+
+<body>
+	<div class="user-panel main">
+		<input name="login" />
+	</div>
+	<div id="foo\bar"></div>
+	<div id="foo:bar"></div>
+
+	<script type="text/javascript">
+		var el = document.querySelector("div.user-panel.main input[name='login']");
+		console.log(el);
+
+		console.log('#foo\bar')               // "#fooar" (\b is the backspace control character)
+		//document.querySelector('#foo\bar')    // Does not match anything
+
+		console.log('#foo\\bar')              // "#foo\bar"
+		console.log('#foo\\\\bar')            // "#foo\\bar"
+		document.querySelector('#foo\\\\bar') // Match the first div
+
+		//document.querySelector('#foo:bar')    // Does not match anything
+		document.querySelector('#foo\\:bar')  // Match the second div
+	</script>
+</body>
+
+</html>

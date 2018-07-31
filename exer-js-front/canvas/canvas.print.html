@@ -1,0 +1,62 @@
+<html>
+
+<head>
+</head>
+<style>
+	body {
+		background-color: ivory;
+	}
+
+	canvas {
+		border: 1px solid red;
+	}
+</style>
+
+<body>
+	<canvas id="canvas" width=300 height=300></canvas>
+	<script>
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+
+		ctx.fillStyle = "gold";
+		ctx.strokeStyle = "blue";
+		ctx.lineWidth = 5;
+		ctx.rect(50, 50, 100, 100);
+		ctx.fill();
+		ctx.stroke();
+
+		printCanvas1();
+
+		function printCanvas1() {
+			document.focus();
+			document.print();
+			document.close();
+		}
+
+		function printCanvas1() {
+			var win = window.open();
+			win.document.write("<br><img src='" + canvas.toDataURL() + "'/>");
+			win.print();
+			win.close();
+		}
+
+		function printCanvas2() {
+			var windowContent = '<!DOCTYPE html>';
+			windowContent += '<html>'
+			windowContent += '<head><title>Print canvas</title></head>';
+			windowContent += '<body>'
+			windowContent += '<img src="' + canvas.toDataURL() + '">';
+			windowContent += '</body>';
+			windowContent += '</html>';
+			var printWin = window.open('', '', 'width=300,height=300');
+			printWin.document.open();
+			printWin.document.write(windowContent);
+			printWin.document.close();
+			printWin.focus();
+			printWin.print();
+			printWin.close();
+		}
+	</script>
+</body>
+
+</html>

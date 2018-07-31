@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+	<style>
+		/*
+            :active
+            :any
+            :checked
+            :default
+            :dir()
+            :disabled
+            :empty
+            :enabled
+            :first
+            :first-child
+            :first-of-type
+            :fullscreen
+            :focus
+            :focus-within
+            :hover
+            :indeterminate
+            :in-range
+            :invalid
+            :lang()
+            :last-child
+            :last-of-type
+            :left
+            :link
+            :not()
+            :nth-child()
+            :nth-last-child()
+            :nth-last-of-type()
+            :nth-of-type()
+            :only-child
+            :only-of-type
+            :optional
+            :out-of-range
+            :read-only
+            :read-write
+            :required
+            :right
+            :root
+            :scope
+            :target
+            :valid
+            :visited
+        */
+		/* These styles will style our link in all states */
+
+		a {
+			color: blue;
+			font-weight: bold;
+		}
+		/* We want visited links to be the same color as non visited links */
+
+		a:visited {
+			color: blue;
+		}
+		/* We highlight the link when it is hovered (mouse), activated or focused (keyboard) */
+
+		a:hover,
+		a:active,
+		a:focus {
+			color: darkred;
+			text-decoration: none;
+		}
+	</style>
+</head>
+
+<body>
+	<a href="https://developer.mozilla.org/" target="_blank">Mozilla Developer Network</a>
+</body>
+
+</html>

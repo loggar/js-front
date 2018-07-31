@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<input id="inputFile" type="file" accept="image/*" />
+	<script type="text/javascript">
+		// properties of html input file - accept, multiple, files(array), onchange.
+
+		document.getElementById('inputFile').onchange = function(e) {
+			console.log(e);
+			var file = e.target.files[0];
+			console.log(file.name);
+		}
+		
+		// javascript File API - https://w3c.github.io/FileAPI
+		
+		
+	</script>
+</body>
+</html>

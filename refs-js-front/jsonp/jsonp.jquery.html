@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		function requestJsonp() {
+			$.ajax({
+				url: "http://staff.localhost:8080/dev/classMap/refresh",
+				type: 'GET',
+				dataType: "jsonp",
+				jsonp: "callback",
+				jsonpCallback: 'callback1'
+			}).done(function (respnse) {
+				console.log(JSON.stringify(respnse, ' '));
+			}).fail(function (respnse) {
+				console.log(JSON.stringify(respnse, ' '));
+			});
+		}
+
+		function callback1() {
+			console.log("callback1");
+		}
+
+		$(document).ready(function () {
+			requestJsonp();
+		});
+
+		/**
+		 * backend :
+		 * 
+		 * if(!callback) return js_json_obj_text;
+		 * else return "callback1(" + js_json_obj_text + ")";
+		 */
+	</script>
+</body>
+
+</html>

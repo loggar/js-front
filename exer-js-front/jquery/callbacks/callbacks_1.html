@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		/**
+		 * jQuery.Callbacks(flags)
+		 * 
+		 * @return Callbacks
+		 * @param String
+		 *            flags An optional list of space-separated flags that change how the callback list behaves.
+		 * 
+		 */
+		(function($) {
+			function fn1(value) {
+				console.log(value);
+			}
+
+			function fn2(value) {
+				console.log("fn2 says: " + value);
+				return false;
+			}
+
+			var callbacks_01 = $.Callbacks();
+			callbacks_01.add(fn1);
+
+			// Outputs: foo!
+			callbacks_01.fire("foo!");
+
+			callbacks_01.add(fn2);
+
+			// Outputs: bar!, fn2 says: bar!
+			callbacks_01.fire("bar!");
+
+			var callbacks_02 = $.Callbacks();
+			callbacks_02.add(fn1);
+
+			// Outputs: foo!
+			callbacks_02.fire("foo!");
+
+			callbacks_02.add(fn2);
+
+			// Outputs: bar!, fn2 says: bar!
+			callbacks_02.fire("bar!");
+
+			callbacks_02.remove(fn2);
+
+			// Only outputs foobar, as fn2 has been removed.
+			callbacks_02.fire("foobar");
+
+		})(jQuery);
+	</script>
+</body>
+</html>

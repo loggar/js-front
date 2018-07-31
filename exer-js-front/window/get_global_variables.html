@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<script type="text/javascript">
+		// Inject an iframe and compare its `contentWindow` properties to the global window properties
+		(function () {
+			var iframe = document.createElement('iframe');
+			iframe.onload = function () {
+				var iframeKeys = Object.keys(iframe.contentWindow);
+				Object.keys(window).forEach(function (key) {
+					if (!(key in iframeKeys)) {
+						console.log(key);
+					}
+				});
+			};
+			iframe.src = 'about:blank';
+			document.body.appendChild(iframe);
+		})();
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<!-- In the header -->
+	<link href="https://transloadit.edgly.net/releases/uppy/v0.25.2/dist/uppy.min.css" rel="stylesheet">
+
+	<!-- Where the drag and drop will be -->
+	<div id="drag-drop-area"></div>
+
+	<!-- Bottom of the page -->
+	<script src="https://transloadit.edgly.net/releases/uppy/v0.25.2/dist/uppy.min.js"></script>
+	
+	<script type="text/javascript">
+		var uppy = Uppy.Core({ autoProceed: false })
+		uppy.use(Uppy.Dashboard, { target: '#drag-drop-area', inline: true })
+		uppy.use(Uppy.XHRUpload, { endpoint: 'https://mywebsite.com/receive-file.php' })
+	</script>
+</body>
+
+</html>

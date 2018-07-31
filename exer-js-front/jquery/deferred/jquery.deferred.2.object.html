@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		// Existing object
+		var obj = {
+			hello: function (name) {
+				console.log("Hello " + name);
+			}
+		},
+			// Create a Deferred
+			defer = $.Deferred();
+
+		// Set object as a promise
+		defer.promise(obj);
+
+		// Resolve the deferred
+		defer.resolve("John");
+
+		// Use the object as a Promise
+		obj.done(function (name) {
+			obj.hello(name); // Will log "Hello John"
+		}).hello("Karl"); // Will log "Hello Karl"
+	</script>
+</body>
+
+</html>

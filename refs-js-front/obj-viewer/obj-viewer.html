@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<div id="objViewerContainer"></div>
+	<script type="text/javascript">
+		var objViewContainerId = "objViewerContainer";
+		var objViewerId = "file_obj_viewer";
+		var setFilePath = function (url) {
+			if ((/\.(gif|jpg|jpeg|tiff|png|bmp)$/i).test(url)) {
+				$("#" + objViewContainerId).css("overflow", "scroll");
+				$("#" + objViewContainerId).css("height", $(window).height() - 36);
+				$("#" + objViewContainerId).html("").append($('<img />', {
+					id: objViewerId,
+					src: encodeURI(url)
+				}));
+			} else {
+				$("#" + objViewContainerId).css("overflow", "");
+				$("#" + objViewContainerId).html("").append($("<embed />", {
+					id: objViewerId,
+					src: encodeURI(url),
+					width: "100%",
+					height: $(window).height() - 36
+				}));
+			}
+		};
+		$(document).ready(function () {
+			$(window).resize(function () {
+				$('#' + objViewContainerId).attr('height', $(window).height() - 36);
+			});
+
+			var fileUrl = "sample-files/sample-img.png";
+			setFilePath(fileUrl);
+		});
+	</script>
+</body>
+
+</html>

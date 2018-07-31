@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+
+<body>
+	<h1>Title1</h1>
+	<h1>Title2</h1>
+	<h1>Title3</h1>
+	<div id="sprite">This</div>
+	<script type="text/javascript">
+		(function ($) {
+			var elt = $("#sprite"); // The element we want to move
+			var position = elt.offset(); // Get its current position
+			position.top += 100; // Change its Y coordinate
+			elt.offset(position); // Set the new position
+			// Move all <h1> elements to the right by a distance that depends on their position in the document
+			$("h1").offset(function (index, curpos) {
+				return { left: curpos.left + 25 * index, top: curpos.top };
+			});
+		})(jQuery);
+	</script>
+</body>
+
+</html>

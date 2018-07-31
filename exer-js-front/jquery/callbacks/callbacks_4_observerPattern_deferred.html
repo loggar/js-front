@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		/**
+		 * $.Deferred Pub/Sub
+		 */
+		(function($) {
+
+			var topics = {};
+
+			jQuery.Topic = function(id) {
+				var callbacks, method, topic = id && topics[id];
+
+				if (!topic) {
+					callbacks = jQuery.Callbacks();
+					topic = {
+						publish : callbacks.fire,
+						subscribe : callbacks.add,
+						unsubscribe : callbacks.remove
+					};
+					if (id) {
+						topics[id] = topic;
+					}
+				}
+				return topic;
+			};
+
+			function fn1(value) {
+				console.log(value);
+				return false;
+			}
+
+			function fn2(value) {
+				fn1("fn2 says: " + value);
+				return false;
+			}
+
+			// Subscribe to the mailArrived notification
+			$.Topic("mailArrived").subscribe(fn2);
+
+			// Create a new instance of Deferreds
+			var dfd = $.Deferred();
+
+			// Define a new topic (without directly publishing)
+			var topic = $.Topic("mailArrived");
+
+			// When the deferred has been resolved, publish a
+			// notification to subscribers
+			dfd.done(topic.publish);
+
+			// Here the Deferred is being resolved with a message
+			// that will be passed back to subscribers. It's possible to
+			// easily integrate this into a more complex routine
+			// (eg. waiting on an Ajax call to complete) so that
+			// messages are only published once the task has actually
+			// finished.
+
+			dfd.resolve("it's been published!");
+
+		})(jQuery);
+	</script>
+</body>
+</html>

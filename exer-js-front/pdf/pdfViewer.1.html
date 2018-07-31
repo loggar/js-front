@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<div id="container">
+		<embed id="myfile" src="myfile.pdf" width="100%" />
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#container').attr('height', $(window).height() - 30);
+			$(window).resize(function () {
+				$('#container').attr('height', $(window).height() - 30);
+			});
+		});
+	</script>
+</body>
+
+</html>

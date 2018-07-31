@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>localStorage, sessionStorage</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		// save
+		localStorage.setItem('foo', 'bar');
+		localStorage.foo = 'bar';
+		localStorage['foo'] = 'bar';
+
+		// fetch
+		var data = localStorage.getItem('foo');
+		var data = localStorage.foo;
+		var data = localStorage['foo'];
+
+		var obj = {
+			x: 1,
+			y: 2
+		};
+
+		// serialize
+		localStorage.foo = JSON.stringify(obj);
+		// unserialize
+		var obj2 = JSON.parse(localStorage.foo);
+
+		// remove one
+		localStorage.removeItem('foo');
+		delete localStorage.foo;
+		delete localStorage['foo'];
+
+		// remove all
+		localStorage.clear();
+
+		// see all datas
+		for (var i = 0; i < localStorage.length; i++) {
+			var key = localStorage.key(i);
+			var value = localStorage[key];
+		}
+
+		for (var key in localStorage) {
+			if (localStorage.hasOwnProperty(key)) {
+				var value = localStorage[key];
+			}
+		}
+
+		// example of using storage event
+		window.addEventListener('storage', function (event) {
+			if (event.key === 'userid') {
+				var msg = 'Hello, ' + event.newValue;
+				console.log(msg);
+			}
+		}, false);
+
+		// versiono control.
+		window.onload = function () {
+			if (!localStorage.version) {
+				localStorage.version = '1.0';
+			} else if (localStorage.version === '1.0') {
+				localStorage.version = '1.1';
+			}
+		}
+	</script>
+</body>
+
+</html>

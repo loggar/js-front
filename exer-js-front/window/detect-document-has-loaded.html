@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<script type="text/javascript">
+		// The basic check
+		if (document.readyState === 'complete') {
+			// good to go!
+		}
+
+		// Polling for the sake of my intern tests
+		var interval = setInterval(function () {
+			if (document.readyState === 'complete') {
+				clearInterval(interval);
+				done();
+			}
+		}, 100);
+	</script>
+</body>
+
+</html>

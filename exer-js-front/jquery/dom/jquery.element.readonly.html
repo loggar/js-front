@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<input id="input_1" type="text" />
+	<span>prop readonly : </span><span id="input_1_readonly"></span>
+	<script type="text/javascript">
+		(function ($) {
+			$("#input_1").prop("readonly", false);
+			$("#input_1").prop("readonly", true);
+			$("#input_1_readonly").html($("#input_1").prop("readonly"));
+		})(jQuery);
+	</script>
+</body>
+
+</html>

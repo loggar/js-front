@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title></title>
+</head>
+<body>
+	<div>
+		<h1>
+			<a href="#"> <span>Hello</span>
+			</a>
+		</h1>
+	</div>
+	<script type="text/javascript">
+		window.addEventListener("load", function() {
+			var els = document.querySelectorAll("*");
+
+			for (var i = 0; i < els.length; i++) {
+				els[i].addEventListener("click", function() {
+					console.log("Click event fired on the " + this.nodeName + " element");
+				});
+			}
+
+			/*
+			event_bubbling_1.js:6 Click event fired on the SPAN element
+			event_bubbling_1.js:6 Click event fired on the A element
+			event_bubbling_1.js:6 Click event fired on the H1 element
+			event_bubbling_1.js:6 Click event fired on the DIV element
+			event_bubbling_1.js:6 Click event fired on the BODY element
+			event_bubbling_1.js:6 Click event fired on the HTML element
+			 */
+		});
+	</script>
+</body>
+</html>

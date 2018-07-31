@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<style>
+		img {
+			opacity: 1;
+			transition: opacity 1.0s;
+		}
+
+		img[data-src] {
+			opacity: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<img data-src="https://loggar.github.io/js/docs/sample-res/sample.1.png" alt="">
+
+	<script type="text/javascript">
+		(function () {
+			[].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
+				img.setAttribute('src', img.getAttribute('data-src'));
+				img.onload = function () {
+					img.removeAttribute('data-src');
+				};
+			});
+		})();
+	</script>
+</body>
+
+</html>

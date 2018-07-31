@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript">
+		(function ($) {
+			var body = $("body");
+			var contentWidth = body.width();
+			var paddingWidth = body.innerWidth();
+			var borderWidth = body.outerWidth();
+			var marginWidth = body.outerWidth(true);
+			var padding = paddingWidth - contentWidth; // sum of left and right padding
+			var borders = borderWidth - paddingWidth; // sum of left and right border widths
+			var margins = marginWidth - borderWidth; // sum of left and right margins
+
+			console.log(contentWidth);
+			console.log(paddingWidth);
+			console.log(borderWidth);
+			console.log(marginWidth);
+			console.log(padding);
+			console.log(borders);
+			console.log(margins);
+		})(jQuery);
+	</script>
+</body>
+
+</html>

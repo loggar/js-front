@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		function requestJsonp() {
+			var refreshClassMapUrl = "/dev/classMap/refresh.json";
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+			script.src = "http://staff.localhost:8080" + refreshClassMapUrl
+				+ "?callback=callback1";
+			document.getElementsByTagName('head')[0].appendChild(script);
+		}
+
+		function callback1() {
+			console.log("callback1");
+		}
+
+		$(document).ready(function () {
+			requestJsonp();
+		});
+
+		/**
+		 * backend :
+		 * 
+		 * if(!callback) return js_json_obj_text;
+		 * else return "callback1(" + js_json_obj_text + ")";
+		 */
+	</script>
+</body>
+
+</html>

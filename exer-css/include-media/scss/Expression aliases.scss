@@ -1,0 +1,7 @@
+$my-weird-bp: ">=tablet",
+"<815px",
+"landscape",
+"retina3x";
+@include media($my-weird-bp...) {
+    display: inline-block;
+}

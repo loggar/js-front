@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<canvas id="myChart" width="800px" height="400px"></canvas>
+
+	<script src="../node_modules/chart.js/dist/Chart.js"></script>
+	<script>
+		var ctx = document.getElementById("myChart");
+		var myChart = new Chart(ctx, {
+			type: 'line',
+			data: {
+				labels: [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000],
+				datasets: [{
+					label: 'probability vs. velocity',
+					// data: [50, 50, 50, 85, 85, 85],
+					data: [{
+						x: 0,
+						y: 50
+					}, {
+						x: 1000,
+						y: 50
+					}, {
+						x: 9000,
+						y: 85
+					}, {
+						x: 10000,
+						y: 85
+					}, {
+						x: 11000,
+						y: 85
+					}],
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+						'rgba(255,99,132,1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				responsive: false, // apply width and height of the canvas tag
+				elements: {
+					line: {
+						tension: 0  // the line is curved between points
+					}
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: false,
+							max: 90,
+							min: 40,
+							stepSize: 10
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'probability'
+						}
+					}],
+					xAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'velocity'
+						}
+					}]
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>

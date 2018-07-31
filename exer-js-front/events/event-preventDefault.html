@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+
+<body>
+	<div id="content_01">
+		<a class="confirmLink" href="http://www.google.com">google.com</a>
+	</div>
+	<script type="text/javascript">
+		document.querySelector("a.confirmLink").addEventListener("click", function (e) {
+			if(confirm("?")) {
+				return true;
+			} else {
+				e.preventDefault();
+				return false;
+			}
+		}, false);
+	</script>
+</body>
+
+</html>

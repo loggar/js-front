@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+
+<body>
+	<div>
+		<h5>Original content</h5>
+		<p>
+			inside paragraph
+			<span>inside span</span> inside paragraph
+		</p>
+	</div>
+	<div>
+		<h5>Output</h5>
+		<div id="output"></div>
+	</div>
+
+	<script type="text/javascript">
+		var baseElement = document.querySelector("p");
+		document.getElementById("output").innerHTML = (baseElement.querySelector("div span").innerHTML);
+	</script>
+</body>
+
+</html>

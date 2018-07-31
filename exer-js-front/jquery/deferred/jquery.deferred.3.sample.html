@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		(function($) {
+			/*
+			 * plain ajax request.
+			 */
+			var ajaxCall = function(submitUrl, submitMethod, callback) {
+				$.ajax({
+					url : submitUrl,
+					contentType : 'application/x-www-form-urlencoded; charset=utf-8;',
+					dataType : 'json',
+					type : submitMethod
+				}).done(function(data) {
+					if (data.success) {
+						callback(data);
+					}
+				}).fail(function(error) {
+					console.log(error);
+				}).always(function() {
+				});
+			};
+
+			/*
+			 * using differed.
+			 */
+			var deferreds = [];
+			var urls = [ '/aaa/bbb/ccc/XXX', '/aaa/bbb/ccc/YYY', ];
+
+			urls.forEach(function(url) {
+				var deferred = $.Deferred();
+				deferreds.push(deferred);
+				ajaxCall(url, "GET", (function(deferred) {
+					return function(data) {
+						deferred.resolve(data);
+					};
+				})(deferred));
+			});
+
+			/*
+			 * all response arrived -> invoke "then".
+			 */
+			$.when.apply($, deferreds).then(function() {
+				var responseParams = [];
+				for (var index = 0; index < arguments.length; index++) {
+					var data = arguments[index];
+					if (!data) {
+						continue;
+					}
+					responseParams = responseParams.concat(data.responseParam);
+				}
+
+				console.log(responseParams);
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>

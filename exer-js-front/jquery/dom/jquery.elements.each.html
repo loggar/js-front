@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<a class="abcd" href="test1.html"></a>
+	<a class="abcd" href="test2.html"></a>
+	<a class="abcd" href="test1.html"></a>
+	<a class="abcd" href="test2.html"></a>
+	<a class="abcd" href="test3.html"></a>
+
+	<script type="text/javascript">
+		(function ($) {
+			var arrLink = new Array();
+
+			$(".abcd").each(function () {
+				if (arrLink.indexOf(this.href) < 0) arrLink.push(this.href);
+			});
+
+			console.log(arrLink);
+		})(jQuery);
+	</script>
+</body>
+
+</html>
