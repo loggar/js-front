@@ -11,6 +11,6 @@
 	"license": "ISC",
 	"dependencies": {
 		"include-media": "^1.4.9",
-		"node-sass": "4.9.0"
+		"node-sass": "^4.9.2"
 	}
 }
