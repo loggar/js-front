@@ -50,7 +50,7 @@ $ npm install --save-dev grunt grunt-browserify
 
 
 ### Inside your main file (often, `app.js`):
-
+```
     var app = require('tinyapp');
 
     app.init({
@@ -61,25 +61,26 @@ $ npm install --save-dev grunt grunt-browserify
       // renders.
       beforeRender: myPromise
     });
-
+```
 
 ### Create your first tinyapp module
 
 
 Create a namespace:
-
+```
     var namespace = 'hello';
+```
 
 Include tinyapp:
-
+```
     var namespace = 'hello',
       app = require('tinyapp');
 
     // use app as desired
-
+```
 
 Provide an API:
-
+```
     var namespace = 'hello',
       app = require('tinyapp'),
 
@@ -90,10 +91,10 @@ Provide an API:
       api = {
         hello: hello
       };
-
+```
 
 Export your module:
-
+```
     var namespace = 'hello',
       app = require('tinyapp'),
 
@@ -106,17 +107,17 @@ Export your module:
       };
 
     module.exports = api;
-
+```
 
 Exporting your module makes it available to `require()` in other modules.
 
 
 Declaring your API explicitly makes it immediately clear which parts of your module constitute the exposed interface.
-
+```
       api = {
         hello: hello
       };
-
+```
 In this case, it's just `hello`, but most interfaces will be more complicated.
 
 
@@ -137,7 +138,7 @@ Similarly, the `app.renderReady()` callback is called after:
 1. the DOM is ready to be manipulated
 
 This allows you to defer render until it's safe to do so. For example, say you want to render Skrillex tour dates from BandsInTown:
-
+```
     var namespace = 'skrillexInfo',
       app = require('tinyapp'),
       data,
@@ -172,7 +173,7 @@ This allows you to defer render until it's safe to do so. For example, say you w
     app.renderReady(render);
 
     module.exports = api;
-
+```
 
 Tip: Try not to do anything blocking in your `app.loadReady()` callback. For example, you might want to asynchronously fetch the data that you need to complete your page render, but if you're loading a fairly large collection and you need to iterate over the collection and do some data processing, save the data processing step for `app.renderReady()`, when you're not blocking the page load process.
 
@@ -199,7 +200,7 @@ For more on application configuration, see ["The Twelve-Factor App"](http://www.
 `beforeRender` is a list of application-level promises which all must finish before the render process begins. For example, many apps will need translations to load before modules are allowed to render. By adding an i18n (internationalization) promise to the application's `beforeRender` queue, you can postpone render until the translations are loaded. Using `beforeRender` can prevent tricky race condition bugs from cropping up, and provide a neat solution if you need a guaranteed way to handle tasks before the modules render.
 
 You can resolve `beforeRender` promises by listening for an expected event to fire. Inside `app.js`:
-
+```
     var namespace = 'app',
       whenI18nLoaded = app.deferred();
 
@@ -210,30 +211,30 @@ You can resolve `beforeRender` promises by listening for an expected event to fi
     app.init({
       beforeRender: [whenI18nLoaded.promise()],
     });
-
+```
 
 Later:
-
+```
     whenTranslationsLoaded.done(function () {
       app.trigger('translations_loaded.' + namespace);
     });
-
+```
 
 ## Tinyapp Responsibilities
 
 ### Events
 
 Modules should know as little as possible about each other. To that end, modules should communicate through events. There is an app level event bus supplied by the tinyapp sandbox. You can use `app.on()` to subscribe to events, `app.off()` to unsubscribe, and `app.trigger()` to publish.
-
+```
     app.on('a.*', function (data) { 
         console.log(data);
     });
     
     // later
     app.trigger('a.b', 'hello, world'); // logs 'hello, world'
-
+```
 Be specific about the events you report, and namespace your events. For example:
-
+```
     var namespace = 'videoPlayer.view',
 
       // Capture click events and relay them to the app
@@ -256,7 +257,7 @@ Be specific about the events you report, and namespace your events. For example:
     // to attach events to.
     app.renderReady(bindEvents);
     module.exports = api;
-
+```
 
 ## Sandbox
 
@@ -285,13 +286,14 @@ Access libraries and utilities through a canonical interface (a facade), rather 
 ## Registration
 
 Modules that you wish to add to the sandbox (to be used by many other modules) need to be registered. Tinyapp supports deep namespaces. For example:
-
+```
     var namespace = 'i18n.date',
       api;
 
     // Later...
     app.register(namespace, api);
     module.exports = api;
+```
 
 This example will create an `i18n` object if it doesn't already exist, and attach the `api` object at `app.i18n.date`.
 
