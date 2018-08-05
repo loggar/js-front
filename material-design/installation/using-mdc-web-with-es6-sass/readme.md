@@ -4,10 +4,6 @@ It is highly recommended to install Material Components for the web via npm and 
 
 ## Webpack with Sass
 
-```shell
-npm init
-```
-
 install webpack
 
 ```shell
