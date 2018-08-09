@@ -1,7 +1,7 @@
 # log
 *.log
 npm-debug.log*
-_log
+_log/
 
 # grunt intermediate storage
 .grunt
@@ -10,9 +10,9 @@ _log
 .lock-wscript
 
 # dependency directories
-node_modules
-jspm_packages
-bower_components
+node_modules/
+jspm_packages/
+bower_components/
 
 # optional npm cache directory
 .npm
@@ -31,19 +31,21 @@ ehthumbs.db
 Thumbs.db
 
 # compiled output
-dist
-.dist
-dist-production
-out-tsc
-build
-.build
+dist/
+.dist/
+dist-production/
+out-tsc/
+.build/
 
 # test
-_test-output
+_test-output/
+
+# code coverage
+coverage/
 
 # temporary dirs
-tmp
-_tmp
+tmp/
+_tmp/
 
 # visual studio code
-.vscode
+.vscode/
