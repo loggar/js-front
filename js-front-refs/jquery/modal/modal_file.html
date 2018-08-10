@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	<title></title>
+</head>
+
+<body>
+	<div class="dialogBox" style="border:1px solid gray;">
+		<a href="./modal_file_target.html" class="exampleLink">Test</a>
+	</div>
+	<script type="text/javascript">
+		(function ($) {
+			var $modalDialog = $('<div/>', {
+				'class': 'exampleModal',
+				'id': 'exampleModal1'
+			})
+				.appendTo('body')
+				.dialog({
+					resizable: false,
+					autoOpen: false,
+					height: 800,
+					width: 1000,
+					show: 'fold',
+					buttons: {
+						"Close": function () {
+							$modalDialog.dialog("close");
+						}
+					},
+					modal: true
+				});
+
+			$(function () {
+				$('a.exampleLink').on('click', function (e) {
+					e.preventDefault();
+					var url = $('a.exampleLink:first').attr('href');
+					$modalDialog.load(url);
+					$modalDialog.dialog("open");
+				});
+			});
+		})(jQuery);
+	</script>
+</body>
+
+</html>
