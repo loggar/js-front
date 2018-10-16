@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<div id="parent">
+	</div>
+	<script type="text/javascript">
+		(function ($) {
+			$("#parent").append("<p id='p1'>1</p>");
+			$("#parent").append("<p id='p2'>2</p>");
+			$("#parent").append("<p id='p3'>3</p>");
+			$("#p2").remove();
+		})(jQuery);
+	</script>
+</body>
+
+</html>
