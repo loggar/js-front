@@ -1,3 +1,3 @@
 # Charly
 
-## Javascript, ES6 and beyond, Frontend modules ...
+## Frontend Javascript Cores and Modules, HTML and Styles
