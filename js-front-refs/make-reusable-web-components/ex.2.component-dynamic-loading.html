@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<div control=gmap size=400px latlng=33.808678,-117.918921></div>
+	two maps
+	<div control=gmap size=400px latlng=28.3852377,-81.5660627></div>
+
+	<script>
+		// This promise gets fulfilled when the script has loaded. It also checks first, to see if the script has already been loaded.
+		const load = async (s) => {
+			return new Promise(async r => {
+				for (i = 0; i < document.scripts.length; i++)
+					if (document.scripts[i].src == s) return r()
+				let e = document.createElement('script')
+				e.src = s
+				document.body.appendChild(e)
+				e.onload = r
+			})
+		}
+
+		// we may make our reusable component, a gmap function:
+		const gmap = async (e) => {
+			return new Promise(async r => {
+				e.style.height = e.style.width = e.getAttribute('size')
+				let latlng = e.getAttribute('latlng').split(',')
+				await load('https://maps.googleapis.com/maps/api/js?v=3')
+				var map = new google.maps.Map(e, {
+					center: new self.google.maps.LatLng(latlng[0], latlng[1]),
+					zoom: 14,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				});
+				r(map)
+			})
+		}
+
+		// This is an async function, which will await the load script to complete. This will ensure everything gets done in order. We may want to have multiple maps on a page.
+		// and feed the Divs to the gmap “component” to create the controls
+		(async () => {
+			let controls = document.querySelectorAll('div[control=gmap]')
+			for (var i = 0; i < controls.length; i++)
+				await gmap(controls[i])
+		})()
+
+	</script>
+</body>
+
+</html>
