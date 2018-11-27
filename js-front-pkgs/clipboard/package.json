@@ -1,5 +1,5 @@
 {
-	"name": "loggar_nodejs_clipboard",
+	"name": "nodejs_clipboard",
 	"version": "0.1.0",
 	"scripts": {
 		"start": "node src/app.js",

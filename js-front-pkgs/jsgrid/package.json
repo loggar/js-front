@@ -1,5 +1,5 @@
 {
-	"name": "loggar_nodejs_jsgrid",
+	"name": "nodejs_jsgrid",
 	"version": "0.1.0",
 	"scripts": {
 		"dev": "lite-server"
