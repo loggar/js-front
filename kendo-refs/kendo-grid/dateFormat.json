@@ -1,0 +1,7 @@
+[
+  {
+    "field": "DUE_DATE",
+    "title": "Due Date",
+    "format": "{0:dd/MM/yyyy HH:mm:ss}"
+  }
+]
