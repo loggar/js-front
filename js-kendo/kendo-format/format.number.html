@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Kendo UI Snippet</title>
+
+    <link
+      rel="stylesheet"
+      href="https://kendo.cdn.telerik.com/2019.1.115/styles/kendo.common.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://kendo.cdn.telerik.com/2019.1.115/styles/kendo.rtl.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://kendo.cdn.telerik.com/2019.1.115/styles/kendo.silver.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://kendo.cdn.telerik.com/2019.1.115/styles/kendo.mobile.all.min.css"
+    />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2019.1.115/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <script>
+      console.log(kendo.format("{0} - {1}", 12, 24)); // outputs "12 - 24"
+      console.log(kendo.format("{0:c} - {1:c}", 12, 24)); //  outputs "$12.00 - $24.00"
+      console.log(kendo.format("{0:n1}", 45.156));
+      console.log(kendo.format("{0:c}", 2000.0)); // comma
+      console.log(kendo.format("{0:p}", 25.23 / 100)); // percent
+    </script>
+  </body>
+</html>
