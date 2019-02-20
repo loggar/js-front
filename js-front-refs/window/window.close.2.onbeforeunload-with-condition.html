@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the document</title>
+  </head>
+  <body>
+    <a href="http://code-maven.com/">Code Maven</a>
+    <script>
+      function data_needs_saving() {
+        return true;
+      }
+
+      window.onbeforeunload = function() {
+        if (data_needs_saving()) {
+          return 'Do you really want to leave our brilliant application?';
+        } else {
+          return;
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+    ></script>
+    <title>Title of the document</title>
+  </head>
+  <body>
+    <a href="http://code-maven.com/">Code Maven</a>
+    <script>
+      $(document).ready(function() {
+        $(window).on('beforeunload', function() {
+          return 'Do you really want to close?';
+        });
+      });
+    </script>
+  </body>
+</html>

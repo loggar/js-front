@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the document</title>
+  </head>
+  <body>
+    <a href="http://code-maven.com/">Code Maven</a>
+    <script>
+      let dataSaved = false;
+
+      window.addEventListener('beforeunload', event => {
+        if (!dataSaved) {
+          event.returnValue = 'You have unfinished changes!';
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the document</title>
+  </head>
+  <body>
+    <a href="http://code-maven.com/">Code Maven</a>
+    <script>
+      // Warning before leaving the page (back button, or outgoinglink)
+      window.onbeforeunload = function() {
+        return 'Do you really want to leave our brilliant application?';
+        //if we return nothing here (just calling return;) then there will be no pop-up question at all
+        //return;
+      };
+    </script>
+  </body>
+</html>
