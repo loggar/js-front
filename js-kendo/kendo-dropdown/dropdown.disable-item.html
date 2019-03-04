@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Kendo UI Snippet</title>
+
+    <link
+      rel="stylesheet"
+      href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.common.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.rtl.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.silver.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.mobile.all.min.css"
+    />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <input id="dropdownlist" />
+    <button class="k-button">Mark Oranges as deleted</button>
+    <script id="template" type="text/x-kendo-template">
+      <span class="#: isDeleted ? 'k-state-disabled': ''#">
+         #: name #
+      </span>
+    </script>
+    <script>
+      $('#dropdownlist').kendoDropDownList({
+        dataSource: [
+          { id: 1, name: 'Apples', isDeleted: false },
+          { id: 3, name: 'Mangoes', isDeleted: false },
+          { id: 2, name: 'Oranges', isDeleted: false }
+        ],
+        dataTextField: 'name',
+        dataValueField: 'id',
+        select: function(e) {
+          if (e.dataItem.isDeleted) {
+            e.preventDefault();
+          }
+        },
+        template: kendo.template($('#template').html())
+      });
+
+      $('.k-button').click(function() {
+        var dropdown = $('#dropdownlist').data('kendoDropDownList');
+        var oranges = dropdown.dataSource.get(2);
+        oranges.set('isDeleted', true);
+      });
+    </script>
+  </body>
+</html>
