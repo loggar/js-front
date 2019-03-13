@@ -1,0 +1,10 @@
+<input id="dropdownlist" />
+<script>
+  $('#dropdownlist').kendoDropDownList({
+    dataSource: ['Apples', 'Oranges'],
+    select: function(e) {
+      //call preventDefault() to prevent the selection
+      e.preventDefault();
+    }
+  });
+</script>

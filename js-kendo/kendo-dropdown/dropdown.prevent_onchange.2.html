@@ -1,0 +1,20 @@
+<script>
+  koiDropdown.init($('#' + dropdownId), data, null, {
+    optionLabel: 'Select Course for the Tuition Fee',
+    dataTextField: 'COURSE_NM',
+    dataValueField: 'COURSE_IDX',
+    template: kendo.template($('#issued_course_invoice_template').html()),
+    select: function(e) {
+      var itemText = e.item.text();
+      console.log(typeof itemText, itemText);
+      arr = stringUtil.replaceAll(itemText, '\r\n', '\n').split('\n');
+      var selected = arr.map(function(item) {
+        return item.trim();
+      });
+      console.log(selected);
+      if (selected && selected.length > 3 && selected[3] == 'Complete') {
+        e.preventDefault();
+      }
+    }
+  });
+</script>

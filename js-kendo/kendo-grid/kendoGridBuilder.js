@@ -2,7 +2,7 @@
  * @Module Grid builder (kendo)
  * 
  */
-var kendoGridBuilder = (function() {
+var myGridBuilder = (function() {
 	var setting_grid = {
 		pageable : true,
 		scrollable : {
@@ -55,10 +55,10 @@ var kendoGridBuilder = (function() {
 		});
 	};
 	var generateModel = function(gridId, result, setting, fn_succ) {
-		if (result.data && result.data.length && result.data.length > 9) {
-			logger.log("<MODEL>", gridId, result.data.slice(0, 9), "... total", result.data.length);
+		if (result.data && result.data.length && result.data.length > 99) {
+			myLogger.log("<MODEL>", gridId, result.data.slice(0, 99), "... total", result.data.length);
 		} else {
-			logger.log("<MODEL>", gridId, result.data);
+			myLogger.log("<MODEL>", gridId, result.data);
 		}
 		$("#" + gridId).data("kendoGrid").setDataSource(new kendo.data.DataSource({
 			data : result.data,
@@ -72,10 +72,10 @@ var kendoGridBuilder = (function() {
 		if (!!fn_succ) fn_succ(gridId, result);
 	};
 	var generateModelStatic = function(gridId, result, setting, fn_succ) {
-		if (result.data && result.data.length && result.data.length > 9) {
-			logger.log("<MODEL>", gridId, result.data.slice(0, 9), "... total", result.data.length);
+		if (result.data && result.data.length && result.data.length > 99) {
+			myLogger.log("<MODEL>", gridId, result.data.slice(0, 99), "... total", result.data.length);
 		} else {
-			logger.log("<MODEL>", gridId, result.data);
+			myLogger.log("<MODEL>", gridId, result.data);
 		}
 		$("#" + gridId).data("kendoGrid").setDataSource(new kendo.data.DataSource({
 			data : result,
@@ -88,7 +88,7 @@ var kendoGridBuilder = (function() {
 		if (!!fn_succ) fn_succ(gridId, result);
 	};
 	var initGrid = function(gridId, columns, setting) {
-		logger.log("<GRID:initGrid>", gridId, setting, columns);
+		myLogger.log("<GRID:initGrid>", gridId, setting, columns);
 		var grid = {
 			columns : generateColumns(columns)
 		};
@@ -103,7 +103,7 @@ var kendoGridBuilder = (function() {
 	};
 	var generateGrid = function(gridId, response, setting) {
 		var columns = generateColumns(response);
-		logger.log("<GRID:generateGrid>", gridId, setting, columns);
+		myLogger.log("<GRID:generateGrid>", gridId, setting, columns);
 		var grid = {
 			columns : columns
 		};
@@ -118,7 +118,7 @@ var kendoGridBuilder = (function() {
 	};
 	var generateGridStatic = function(gridId, header, setting) {
 		var columns = generateColumns(header);
-		logger.log("<GRID:generateGridStatic>", gridId, setting, columns);
+		myLogger.log("<GRID:generateGridStatic>", gridId, setting, columns);
 		var grid = {
 			columns : columns
 		};
@@ -219,10 +219,10 @@ var kendoGridBuilder = (function() {
 		},
 		// set grid-model with an url
 		reqModel : function(gridId, modelUrl, params, setting, fn_succ, bindObjs) {
-			logger.debug_ajax_req_start(gridId, modelUrl, params);
+			myLogger.debug_ajax_req_start(gridId, modelUrl, params);
 			overlayUtil.start(gridId);
 			if (!!bindObjs) {
-				elementBind.off(bindObjs);
+				myBind.off(bindObjs);
 			}
 			$.ajax({
 				type : "POST",
@@ -232,13 +232,13 @@ var kendoGridBuilder = (function() {
 				success : function(response) {
 					generateModel(gridId, response, setting, fn_succ);
 					overlayUtil.end(gridId);
-					elementBind.on(bindObjs);
+					myBind.on(bindObjs);
 				},
 				error : function(response) {
-					logger.debug_ajax_res_fail(gridId + " Model Error ", response);
+					myLogger.debug_ajax_res_fail(gridId + " Model Error ", response);
 					overlayUtil.end(gridId);
 					myDataError.cb_req_err_all(response, gridId, modelUrl);
-					elementBind.on(bindObjs);
+					myBind.on(bindObjs);
 				}
 			});
 		}

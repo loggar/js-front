@@ -1,0 +1,11 @@
+<input id="dropdownlist" />
+<script>
+  $('#dropdownlist').kendoDropDownList({
+    dataSource: ['Apples', 'Oranges'],
+    select: function(e) {
+      var item = e.item;
+      var text = item.text();
+      // Use the selected item or its text
+    }
+  });
+</script>
