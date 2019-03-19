@@ -38,16 +38,18 @@ var myGridCtrl = (function() {
       var data = grid.dataItem(this);
       if (data[k] == v) {
         grid.select(this);
-        return false;
       }
     });
     if (!grid.select()) {
-      myLogger.warn('FAIL selectFirstMatch : fail to select grid row');
+      koiLogger.warn('FAIL selectFirstMatch : fail to select grid row');
     } else {
       if (grid.select() && grid.select().position()) {
+        /* force to scroll, grid config need to set scrollable(true) */
+        var scrollContentOffset = grid.element.find('tbody').offset().top;
+        var selectContentOffset = grid.select().offset().top;
         grid.element.find('.k-grid-content').animate(
           {
-            scrollTop: grid.select().position().top
+            scrollTop: selectContentOffset - scrollContentOffset
           },
           400
         );
