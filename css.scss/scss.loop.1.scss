@@ -1,0 +1,7 @@
+/* Generate utility classes for font-size */
+
+@for $x from 1 through 70 {
+  .font-size-#{$x} {
+    font-size: 0px + $x;
+  }
+}

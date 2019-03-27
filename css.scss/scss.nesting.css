@@ -1,0 +1,17 @@
+/* vanilla CSS */
+
+.container {
+  width: 100%;
+  color: grey;
+  background-color: green;
+}
+.container div {
+  border: 1px solid black;
+}
+.container div a {
+  text-decoration: none;
+  color: #f2f2f2;
+}
+.container div a::hover {
+  color: #b2b2b2;
+}

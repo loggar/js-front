@@ -1,0 +1,13 @@
+// SCSS
+
+@mixin fontSize($params: 10px) {
+  font-size: $params;
+}
+
+.header {
+  @include fontSize(20px);
+}
+
+.sub-header {
+  @include fontSize(20px);
+}

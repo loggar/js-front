@@ -1,0 +1,12 @@
+$bg: pink;
+$bg-mobile: red;
+
+p {
+  @if $bg == pink {
+    color: blue;
+  } @else if $bg-mobile == red {
+    color: green;
+  } @else {
+    color: grey;
+  }
+}

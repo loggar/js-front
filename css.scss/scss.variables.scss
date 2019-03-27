@@ -1,0 +1,19 @@
+// Font-weight for a project
+
+$font-light: 400;
+$font-thick: 500;
+$font-heavy: 600;
+
+.element {
+  font-weight: $font-light;
+}
+
+//color palette for a project to maintain consistency
+
+$product-dark-blue: #324e85;
+$product-light-blue: #4c7396;
+$product-lighter-blue: #9bb7cf;
+
+.element {
+  color: $product-dark-blue;
+}

@@ -1,0 +1,15 @@
+// SCSS
+
+//create mixin
+@mixin red-color {
+  color: grey;
+}
+
+.header {
+  @include red-color; /* add mixin */
+}
+
+.sub-header {
+  @include red-color;
+  font-size: 40px;
+}
