@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<title></title>
-</head>
+  <body>
+    <img />
+    <script type="text/javascript">
+      var myImage = document.querySelector('img');
 
-<body>
-	<img />
-	<script type="text/javascript">
-		var myImage = document.querySelector('img');
+      var myHeaders = new Headers();
 
-		var myHeaders = new Headers();
+      var myInit = {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default'
+      };
 
-		var myInit = {
-			method: 'GET',
-			headers: myHeaders,
-			mode: 'cors',
-			cache: 'default'
-		};
+      var myRequest = new Request(
+        'https://loggar.github.io/note/sample-res/sample.1.png',
+        myInit
+      );
 
-		var myRequest = new Request('https://loggar.github.io/note/sample-res/sample.1.png', myInit);
-
-		fetch(myRequest).then(function (response) {
-			return response.blob();
-		}).then(function (myBlob) {
-			var objectURL = URL.createObjectURL(myBlob);
-			myImage.src = objectURL;
-		});
-	</script>
-</body>
-
+      fetch(myRequest)
+        .then(function(response) {
+          return response.blob();
+        })
+        .then(function(myBlob) {
+          var objectURL = URL.createObjectURL(myBlob);
+          myImage.src = objectURL;
+        });
+    </script>
+  </body>
 </html>

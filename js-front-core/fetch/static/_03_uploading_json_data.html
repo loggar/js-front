@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<title></title>
-</head>
+  <body>
+    <script type="text/javascript">
+      var url = '/ex-req';
+      var data = { username: 'example' };
 
-<body>
-	<script type="text/javascript">
-		var url = '/ex-req';
-		var data = { username: 'example' };
-
-		fetch(url, {
-			method: 'POST', // or 'PUT'
-			body: JSON.stringify(data),
-			headers: new Headers({
-				'Content-Type': 'application/json'
-			})
-		}).then(res => res.json())
-			.catch(error => console.error('Error:', error))
-			.then(response => console.log('Success:', response));
-	</script>
-</body>
-
+      fetch(url, {
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify(data),
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        })
+      })
+        .then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => console.log('Success:', response));
+    </script>
+  </body>
 </html>

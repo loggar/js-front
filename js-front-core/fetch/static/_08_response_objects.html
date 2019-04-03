@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<title></title>
-</head>
-
-<body>
-	<script type="text/javascript">
-		/*
+  <body>
+    <script type="text/javascript">
+      /*
 		As you have seen above, Response instances are returned when fetch() promises are resolved.
 
 		The most common response properties you'll use are:
@@ -19,21 +18,20 @@
 		
 		They can also be created programmatically via JavaScript, but this is only really useful in ServiceWorkers, when you are providing a custom response to a received request using a respondWith() method:
 		*/
-		var myBody = new Blob();
+      var myBody = new Blob();
 
-		addEventListener('fetch', function (event) { // ServiceWorker intercepting a fetch
-			event.respondWith(
-				new Response(myBody, {
-					headers: { "Content-Type": "text/plain" }
-				})
-			);
-		});
+      addEventListener('fetch', function(event) {
+        // ServiceWorker intercepting a fetch
+        event.respondWith(
+          new Response(myBody, {
+            headers: { 'Content-Type': 'text/plain' }
+          })
+        );
+      });
 
-		/*
+      /*
 		The Response() constructor takes two optional arguments — a body for the response, and an init object (similar to the one that Request() accepts.)
 		*/
-
-	</script>
-</body>
-
+    </script>
+  </body>
 </html>
