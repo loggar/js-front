@@ -1,0 +1,92 @@
+<!-- Method 2: Add a <h#> element to it -->
+<!-- By <h#> I mean <h1>, <h2>, <h3>,<h4>,<h5>, or <h6> depending on what makes sense. Adding a heading to a sectioning element is a quick way to label it. -->
+
+<section>
+  <h1>Heading</h1>
+  <p>content</p>
+</section>
+
+<section>
+  <header>
+    <h1>Heading</h1>
+    <p>I'm a byline</p>
+  </header>
+
+  <p>Content</p>
+</section>
+
+<!-- This is perfectly fine -->
+<section>
+  <div>
+    <header>
+      <div>
+        <h1>Heading</h1>
+        <p>I'm a byline</p>
+      </div>
+    </header>
+
+    <p>Content</p>
+  </div>
+</section>
+
+<!-- Only one heading of the highest level per sectioning element -->
+<!-- Avoid this: -->
+<section>
+  <h2>Heading level two labeling a section</h2>
+  <p>Content</p>
+
+  <!-- Don't use same level or higher headings as the one labeling the section -->
+  <h2>This is also a heading level two</h2>
+  <p>Content</p>
+</section>
+
+<!-- Do this instead: -->
+<div>
+  <section>
+    <h2>Heading level two labeling a section</h2>
+    <p>Content</p>
+  </section>
+  <section>
+    <h2>Heading level two labeling a different section</h2>
+    <p>Content</p>
+  </section>
+</div>
+
+<!-- The heading always comes first -->
+<!-- Don't do this -->
+<section>
+  <img src="image.jpg" alt="Don't place content or images before the heading" />
+  <h2>Headings should always come first</h2>
+  <p>Place regular content after the heading</p>
+</section>
+
+<!-- Do this instead -->
+<section class="example">
+  <h2>Headings should always come first</h2>
+  <img src="image.jpg" alt="Don't place content or images before the heading" />
+  <p>Place regular content after the heading</p>
+</section>
+
+<style>
+  .example {
+    display: flex;
+    flex-direction: column;
+  }
+  .example img {
+    order: -1;
+  }
+</style>
+
+<!-- Making visually hidden section labels out of headings -->
+<style>
+  .visually-hidden {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+
+<section>
+  <h1 class="visually-hidden">Heading</h1>
+  <p>content</p>
+</section>

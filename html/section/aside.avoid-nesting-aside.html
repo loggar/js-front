@@ -1,0 +1,45 @@
+<!-- Don't do this -->
+<aside aria-label="Side bar">
+  <aside>
+    <h2>Share</h2>
+    <ul>
+      <!-- List of social media links -->
+    </ul>
+  </aside>
+
+  <aside>
+    <h2>Recommendations:</h2>
+    <ul>
+      <li>
+        <article>
+          <h2><a href="#">Related article title</a></h2>
+          <p>Article description</p>
+        </article>
+      </li>
+      <!-- List of recommended articles continues -->
+    </ul>
+  </aside>
+</aside>
+
+<!-- Do this instead -->
+<aside aria-label="Side bar">
+  <section>
+    <h2>Share</h2>
+    <ul>
+      <!-- List of social media links -->
+    </ul>
+  </section>
+
+  <section>
+    <h2>Recommended articles:</h2>
+    <ul>
+      <li>
+        <article>
+          <h2><a href="#">Related article title</a></h2>
+          <p>Article description</p>
+        </article>
+      </li>
+      <!-- List of recommended articles continues -->
+    </ul>
+  </section>
+</aside>

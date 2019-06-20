@@ -1,0 +1,24 @@
+<!-- Method 3: Use an aria-labelledby attribute -->
+<section aria-labelledby="unique-id">
+  <div hidden id="unique-id">Label for this section</div>
+  <p>Content for this section</p>
+</section>
+
+<!-- No need to place the label near the sectioning element -->
+<div hidden id="unique-id">Label for this section</div>
+
+<!-- 1,000 lines of other HTML -->
+<section aria-labelledby="unique-id">
+  <p>Content for this section</p>
+</section>
+
+<!-- Turn non-heading elements into section labels -->
+<section aria-labelledby="section_label">
+  <fieldset>
+    <legend id="section_label">
+      I am both the fieldset legend and the section label
+    </legend>
+
+    <!-- Form fields go here -->
+  </fieldset>
+</section>

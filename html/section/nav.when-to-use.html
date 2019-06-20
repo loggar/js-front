@@ -1,0 +1,33 @@
+<nav aria-label="Primary">
+  <ul>
+    <li><a href="#">Primary link</a></li>
+    <li><a href="#">Primary link</a></li>
+    <li>
+      <a href="#">Primary link</a>
+      <!-- <nav> element is *not* needed again here -->
+      <ul>
+        <li><a href="#">Secondary link</a></li>
+        <li><a href="#">Secondary link</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<!-- <nav> is not needed on a search form. -->
+<!-- role="search" is enough -->
+<form role="search" aria-label="site">
+  <label>
+    <span>Search</span>
+    <input type="search" />
+  </label>
+  <buton type="submit">Submit</button>
+</form>
+
+<!-- Don’t use the word "nav" or "navigation" in the label -->
+<nav aria-label="primary navigation">
+  <!-- Screen reader: "primary navigation navigation landmark" -->
+</nav>
+
+<nav aria-label="primary">
+  <!-- Screen reader: "primary navigation landmark" -->
+</nav>
