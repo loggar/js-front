@@ -18,17 +18,25 @@ var selectFirstMatch = function(grid, k, v) {
       break;
     }
   }
-  // If you have persistSelection = true and want to clear all existing selections first, uncomment the next line
-  // grid._selectedIds = {};
+  // If you have persistSelection = true and want to clear all existing selections first, grid._selectedIds = {}
+  grid._selectedIds = {};
   // Now go to the page holding the record and select the row
   var currentPageSize = grid.dataSource.pageSize();
   var baseIndex = rowNum / currentPageSize;
   var pageWithRow = parseInt(baseIndex) + 1; // pages are one-based
   grid.dataSource.page(pageWithRow);
-  var row = grid.element.find("tr[data-uid='" + modelToSelect.uid + "']");
-  if (row.length > 0) {
-    grid.select(row);
-    // Scroll to the item to ensure it is visible
-    grid.content.scrollTop(grid.select().position().top);
+  if (modelToSelect && modelToSelect.uid) {
+    var row = grid.element.find("tr[data-uid='" + modelToSelect.uid + "']");
+    if (row.length > 0) {
+      grid.select(row);
+      // Scroll to the item to ensure it is visible
+      grid.content.scrollTop(grid.select().position().top);
+    } else {
+      grid.clearSelection();
+      grid.content.scrollTop(0);
+    }
+  } else {
+    grid.clearSelection();
+    grid.content.scrollTop(0);
   }
 };
