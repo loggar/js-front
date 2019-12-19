@@ -1,15 +1,18 @@
-fetch(url)
-  .then(function(response) {
-    return response.json();
+fetch("http://sample.request.url", {})
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+      /*  
+      Actually, the .json() method takes the response and returns a Promise Object and hence  
+      We need to add another then() as we have done in Promise Chaining   
+    */
+    } else {
+      throw new Error("Unable to fetch sample");
+    }
   })
-  .then(function(data) {
-    console.log(data);
+  .then(data => {
+    console.log(data.puzzle);
   })
-  .catch(function() {
-    console.log("Booo");
+  .catch(error => {
+    console.log(error);
   });
-
-fetch(url)
-  .then(r => r.json())
-  .then(data => console.log(data))
-  .catch(e => console.log("Booo"));
