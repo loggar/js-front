@@ -23,3 +23,20 @@ kendo.all.js:65778 Uncaught TypeError: Cannot read property 'id' of undefined
 ```
 that.dataSource.options.schema.model.id;
 ```
+
+grid option
+
+```
+pageable : {
+  pageSize : 200
+},
+selectable : "multiple, row",
+persistSelection : true,
+dataSource : {
+  schema : {
+    model : {
+      id : "rowNo"
+    }
+  }
+},
+```
