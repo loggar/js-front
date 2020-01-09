@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <style>
+      * {
+        margin: 10px;
+      }
+
+      .minheight1 {
+        content: "";
+        width: 50px;
+        background-color: gold;
+        height: 10px;
+        max-height: 10px;
+        min-height: 50px;
+        transition: 1s;
+      }
+      .minheight1:hover {
+        min-height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="minheight1">hover me!</div>
+  </body>
+</html>

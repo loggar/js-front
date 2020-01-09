@@ -1,0 +1,21 @@
+@supports not (display: grid) {
+  /*  if the browser does not support CSS grid */
+  .main {
+    display: flex;
+  }
+}
+
+@supports (display: grid) and (display: -ms-grid) {
+  /* Runs when the browser supports grid and -ms-grid */
+  .main {
+    display: -ms-grid;
+    display: grid;
+  }
+}
+
+@supports (display: flex) or (display: -moz-flex) {
+  .main {
+    display: -moz-flex;
+    display: flex;
+  }
+}
