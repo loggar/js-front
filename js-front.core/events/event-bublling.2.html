@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <div class="grandparent">
+      <div class="parent">
+        <div class="child">1</div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function addEvent(el, event, callback, isCapture = false) {
+        if (!el || !event || !callback || typeof callback !== "function")
+          return;
+        if (typeof el === "string") {
+          el = document.querySelector(el);
+        }
+        el.addEventListener(event, callback, isCapture);
+      }
+
+      addEvent(document, "DOMContentLoaded", () => {
+        const child = document.querySelector(".child");
+        const parent = document.querySelector(".parent");
+        const grandparent = document.querySelector(".grandparent");
+
+        addEvent(child, "click", function(e) {
+          console.log("child");
+        });
+
+        addEvent(parent, "click", function(e) {
+          console.log("parent");
+        });
+
+        addEvent(grandparent, "click", function(e) {
+          console.log("grandparent");
+        });
+
+        addEvent(document, "click", function(e) {
+          console.log("document");
+        });
+
+        addEvent("html", "click", function(e) {
+          console.log("html");
+        });
+
+        addEvent(window, "click", function(e) {
+          console.log("window");
+        });
+      });
+    </script>
+  </body>
+</html>
+<!--
+  The addEventListener method has a third optional parameter useCapture with a default value of false the event will occur in the Bubbling phase if true the event will occur in the Capturing Phase. If we click on the child element it logs child,parent,grandparent, html, document and window respectively on the console. This is Event Bubbling.
+-->

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <div onClick="divHandler()">
+      <ul onClick="ulHandler()">
+        <li id="foo"></li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      function handler() {
+        // do something here
+      }
+      function divHandler() {}
+      function ulHandler() {}
+
+      // Event Bubbling
+      document.getElementById("foo").addEventListener("click", handler);
+      // handler() => ulHandler() => divHandler()
+
+      // Event Capturing
+      document.getElementById("foo").addEventListener("click", handler, true);
+      // divHandler => ulHandler() => handler()
+    </script>
+  </body>
+</html>

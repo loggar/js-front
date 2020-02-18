@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    Event Capturing
+    <script type="text/javascript">
+      function addEvent(el, event, callback, isCapture = false) {
+        if (!el || !event || !callback || typeof callback !== "function")
+          return;
+        if (typeof el === "string") {
+          el = document.querySelector(el);
+        }
+        el.addEventListener(event, callback, isCapture);
+      }
+
+      addEvent(document, "DOMContentLoaded", () => {
+        const child = document.querySelector(".child");
+        const parent = document.querySelector(".parent");
+        const grandparent = document.querySelector(".grandparent");
+
+        addEvent(
+          child,
+          "click",
+          function(e) {
+            console.log("child");
+          },
+          true
+        );
+
+        addEvent(
+          parent,
+          "click",
+          function(e) {
+            console.log("parent");
+          },
+          true
+        );
+
+        addEvent(
+          grandparent,
+          "click",
+          function(e) {
+            console.log("grandparent");
+          },
+          true
+        );
+
+        addEvent(
+          document,
+          "click",
+          function(e) {
+            console.log("document");
+          },
+          true
+        );
+
+        addEvent(
+          "html",
+          "click",
+          function(e) {
+            console.log("html");
+          },
+          true
+        );
+
+        addEvent(
+          window,
+          "click",
+          function(e) {
+            console.log("window");
+          },
+          true
+        );
+      });
+    </script>
+  </body>
+</html>
+<!--
+  The addEventListener method has a third optional parameter useCapture with a default value of false the event will occur in the Bubbling phase if true the event will occur in the Capturing Phase. If we click on the child element it logs window,document,html, grandparent and parent and child respectively on the console. This is Event Capturing.
+-->
