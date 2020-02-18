@@ -1,0 +1,19 @@
+<p>2/10 cats are sleeping right now</p>
+<meter value="2" min="0" max="10"></meter>
+<br />
+<p>60% cats are hungry right now</p>
+<meter value="0.6"></meter>
+<br />
+<p>I could show you my cat but it's still loading</p>
+<progress id="dynamic" max="100" value="0"></progress>
+
+<script>
+  const elem = document.getElementById("dynamic");
+
+  setInterval(() => {
+    elem.value += 1;
+    if (elem.value === 100) {
+      elem.value = 0;
+    }
+  }, 20);
+</script>
