@@ -1,0 +1,28 @@
+<!--
+  This CSS property specifies how an element's fragments should be rendered when broken across multiple lines, columns, or pages.
+-->
+<h1><span>SHE SELLS SEASHELLS ON THE SEASHORE. </span></h1>
+
+<style>
+  h1 {
+    max-width: 300px;
+    font-family: Verdana;
+  }
+
+  h1 span {
+    background: blue;
+    color: white;
+    padding: 12px 12px;
+    line-height: 1.4;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  /* Just for centering */
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
