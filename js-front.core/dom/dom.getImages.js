@@ -1,3 +1,5 @@
+// How to fetch all images within an element?
+
 const getImages = (el, includeDuplicates = false) => {
   const images = [...el.getElementsByTagName("img")].map(img =>
     img.getAttribute("src")
