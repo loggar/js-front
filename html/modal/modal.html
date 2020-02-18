@@ -1,0 +1,43 @@
+<div class="container">
+  <button class="open-modal-btn">Show me the modal!</button>
+
+  <dialog class="my-modal">
+    <div class="modal-body">
+      <p>This is a native modal</p>
+      <img src="http://placekitten.com/400/200" /> <br />
+      <button class="close-modal-btn">Close</button>
+    </div>
+  </dialog>
+</div>
+<script>
+  const trigger = document.querySelector(".open-modal-btn");
+  const closeBtn = document.querySelector(".close-modal-btn");
+  const modal = document.querySelector(".my-modal");
+
+  trigger.addEventListener("click", () => {
+    modal.showModal();
+  });
+  closeBtn.addEventListener("click", () => {
+    modal.close();
+  });
+</script>
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 100px;
+  }
+
+  .my-modal {
+    margin-top: 20px;
+  }
+
+  .modal-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
