@@ -1,0 +1,12 @@
+<template>
+  <h2>H2 here</h2>
+  <img src="img.png" />
+</template>
+
+<script>
+  function showMyTemplate() {
+    const myTemplate = document.querySelector("template");
+    const myTemplateClone = myTemplate.content.cloneNode(true);
+    document.body.appendChild(myTemplateClone);
+  }
+</script>

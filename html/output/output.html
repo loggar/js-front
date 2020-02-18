@@ -1,0 +1,17 @@
+<form
+  oninput="totalWeight.value=parseInt(catAWeight.value)+parseInt(catBWeight.value)"
+>
+  0 <input type="range" id="catAWeight" value="50" />100 +<input
+    type="number"
+    id="catBWeight"
+    value="50"
+  />
+  =<output name="totalWeight" for="catAWeight catBWeight"></output>
+</form>
+
+<style>
+  input,
+  output {
+    margin: 0px 20px;
+  }
+</style>
