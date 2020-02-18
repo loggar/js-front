@@ -1,0 +1,103 @@
+<h1>Detail and Summary</h1>
+
+<h2>Read more about the wizarding schools:</h2>
+
+<section>
+  <details open>
+    <summary>Beauxbatons Academy of Magic</summary>
+    <p>
+      If you like your magic served with a dash of savoir faire, this school is
+      for you. Beauxbatons welcomes a multitude of students of different
+      nationalities, mainly French, but also Spanish, Portuguese, Dutch,
+      Luxembourgian and Belgian.
+    </p>
+  </details>
+
+  <details>
+    <summary>Durmstrang Institute</summary>
+    <p>
+      You’ll certainly hear a few interesting stories at Durmstrang, seeing as
+      this is the school that Dark wizard Gellert Grindelwald was expelled from.
+    </p>
+  </details>
+
+  <details>
+    <summary>Ilvermorny School of Witchcraft and Wizardry </summary>
+    <p>
+      If you fancy living a Hogwarts-style life across the pond. The founder of
+      Ilvermorny, Isolt Sayre, always wished she could go to Hogwarts, and the
+      school definitely seems to embody some of its traditions.
+    </p>
+  </details>
+
+  <details>
+    <summary>Hogwarts School of Witchcraft and Wizardry </summary>
+    <p>
+      Because you love it. But also because of its detailed history, secret
+      passages, eccentric professors, wisecracking ghosts, lovely house-elves,
+      talking portraits and much, much more besides. Most importantly, Hogwarts
+      seems to have a sense of humour about itself, and round every corner is a
+      new delight.
+    </p>
+  </details>
+</section>
+
+<style>
+  /* Only for styling, not required for it to work */
+  body {
+    background-color: lightsteelblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: #fff;
+    font-family: "Berkshire Swash", cursive;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    text-align: center;
+  }
+
+  details {
+    margin-bottom: 20px;
+    width: 100%;
+    font-family: sans-serif;
+  }
+
+  details p {
+    padding: 20px;
+  }
+
+  summary {
+    padding: 20px;
+    background-color: #9fb6ce;
+    border: 1px solid #9fb6ce;
+    outline: none;
+  }
+
+  summary:hover,
+  summary:focus {
+    border: 1px solid lightslategray;
+  }
+
+  details[open] summary {
+    background-color: lightslategray;
+    border: 1px solid lightslategray;
+  }
+
+  details[open] {
+    background: #fff;
+  }
+
+  section {
+    max-width: 80%;
+    width: 100%;
+  }
+</style>

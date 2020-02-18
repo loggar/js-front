@@ -1,0 +1,62 @@
+<!-- Show correct mobile keypad based on input type -->
+
+<h1>Show correct mobile keypad with <code>inputmode</code></h1>
+
+<em>Note: Check this in mobile to see the different keypads!</em>
+<form>
+  <fieldset>
+    <label for="num">Numeric Keypad:</label>
+    <input id="num" inputmode="numeric" />
+  </fieldset>
+
+  <fieldset>
+    <label for="email">Email Keypad:</label>
+    <input id="email" inputmode="email" type="email" />
+  </fieldset>
+
+  <fieldset>
+    <label for="tel">Telephone Keypad:</label>
+    <input id="tel" inputmode="tel" />
+  </fieldset>
+
+  <fieldset>
+    <label for="url">Url Keypad:</label>
+    <input id="url" inputmode="url" type="url" />
+  </fieldset>
+</form>
+
+<style>
+  /* Only for styling, not required for it to work */
+  body {
+    background-color: lightgoldenrodyellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: salmon;
+    font-family: "Berkshire Swash", cursive;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    color: #333;
+    font-family: "Berkshire Swash", cursive;
+    text-align: center;
+  }
+
+  code {
+    background: salmon;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  fieldset {
+    margin: 30px;
+  }
+</style>
