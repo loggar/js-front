@@ -1,3 +1,5 @@
+var eventSourceName = "notificationMsg";
+
 var eventSourceUrl =
   window.location.protocol +
   "//" +
