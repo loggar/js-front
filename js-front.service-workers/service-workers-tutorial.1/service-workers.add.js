@@ -1,3 +1,4 @@
+// https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers
 self.addEventListener('install', function (event) {
 	event.waitUntil(
 		caches.open('v1').then(function (cache) {

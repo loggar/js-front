@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Check whether HTML element has scrollbars using JavaScript
+    </title>
+
+    <style>
+      #div {
+        width: 200px;
+        height: 150px;
+        overflow: auto;
+        text-align: justify;
+      }
+      #GFG {
+        font-size: 24px;
+        font-weight: bold;
+        color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <center>
+      <h1 style="color: green;">
+        GeeksforGeeks
+      </h1>
+
+      <h3>
+        Click on the button to check for the scrollBars
+      </h3>
+
+      <div id="div">
+        This course is for all those people who want to learn Data Structures
+        and Algorithm from basic to advance level. We don't expect you to have
+        any prior knowledge on Data Structure and Algorithm, but a basic prior
+        knowledge of any programming language ( C++ / Java) will be helpful.
+      </div>
+      <br />
+
+      <button onclick="GFG_Fun()">
+        Click Here!
+      </button>
+
+      <div id="GFG"></div>
+
+      <script>
+        function hasScrollBar(element, dir) {
+          dir = dir === "vertical" ? "scrollTop" : "scrollLeft";
+
+          var res = !!element[dir];
+
+          if (!res) {
+            element[dir] = 1;
+            res = !!element[dir];
+            element[dir] = 0;
+          }
+          return res;
+        }
+
+        function GFG_Fun() {
+          var div = document.getElementById("div");
+          var hs = hasScrollBar(div, "horizontal");
+          var vs = hasScrollBar(div, "vertical");
+
+          document.getElementById("GFG").innerHTML =
+            "Horizontal Scrollbar - " + hs + "<br>Vertical Scrollbar - " + vs;
+        }
+      </script>
+    </center>
+  </body>
+</html>
