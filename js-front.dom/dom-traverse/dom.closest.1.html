@@ -1,0 +1,28 @@
+<div data-id="123">
+  <article>
+    <header>
+      <h1>Some title</h1>
+      <button>Click me</button>
+    </header>
+    <!-- ... -->
+  </article>
+</div>
+
+<script>
+  var button = document.querySelector("button");
+  console.log(button.closest("div"));
+
+  element.closest("#my-id"); // yep
+  element.closest(".some-class"); // yep
+  element.closest("[data-id]:not(article)"); // hell yeah
+
+  console.log(button.closest(".i-am-in-the-dom"));
+  // prints HTMLElement
+  console.log(button.closest(".i-am-not-here"));
+  // prints null
+  if (button.closest(".i-am-in-the-dom")) {
+    console.log("Hello there!");
+  } else {
+    console.log(":(");
+  }
+</script>

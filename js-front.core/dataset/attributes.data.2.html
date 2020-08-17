@@ -1,0 +1,11 @@
+<div data-id="123">
+  <button>Click me</button>
+</div>
+
+<script>
+  var button = document.querySelector("button");
+  button.addEventListener("click", (evt) => {
+    console.log(evt.target.parentNode.dataset.id);
+    // prints "123"
+  });
+</script>

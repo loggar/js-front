@@ -1,0 +1,173 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font: normal 14px/1.4 "Source Sans Pro", sans-serif;
+    background-color: #d9e2ec;
+    color: #334e68;
+    margin: 2rem;
+  }
+
+  /* Navigation */
+  .main-navigation {
+    background-color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 0.3em;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+  }
+  .main-navigation.is-expanded {
+    border-bottom-left-radius: 0;
+  }
+  .main-navigation > .entry {
+    font: inherit;
+    color: inherit;
+    text-decoration: unset;
+    border: unset;
+    background-color: unset;
+    padding: unset;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 2rem;
+    transition: color 0.1s linear;
+    position: relative;
+  }
+  .main-navigation > .entry.is-dropdown {
+    padding-right: 1rem;
+  }
+  .main-navigation > .entry.is-dropdown::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 8px solid #2cb1bc;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: 7px;
+    right: 0px;
+  }
+  .main-navigation > .entry:hover,
+  .main-navigation > .entry:focus {
+    color: #2cb1bc;
+  }
+
+  /* Dropdown */
+  .menu-dropdown {
+    background-color: white;
+    position: absolute;
+    margin: unset;
+    padding: 1.5rem 2rem;
+    list-style: none;
+    border-radius: 0 0 0.3em 0.3em;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 650px;
+    border-top: 3px solid #2cb1bc;
+  }
+  .menu-dropdown.is-hidden {
+    display: none;
+  }
+  .menu-dropdown > .item {
+    flex: 0 0 50%;
+  }
+  .menu-dropdown > .item:nth-child(odd) {
+    padding-right: 1rem;
+  }
+  .menu-dropdown > .item:nth-child(even) {
+    padding-left: 1rem;
+  }
+  .menu-dropdown > .item:first-child,
+  .menu-dropdown > .item:nth-child(2) {
+    margin-bottom: 2rem;
+  }
+  .menu-dropdown > .item > .title {
+    margin: unset;
+  }
+  .menu-dropdown > .item > .text {
+    margin-top: unset;
+    color: #668eb4;
+  }
+  .menu-dropdown > .item > .link {
+    color: #2cb1bc;
+    font-weight: 600;
+    text-decoration: unset;
+    transition: color 0.1s linear;
+  }
+  .menu-dropdown > .item > .link:hover,
+  .menu-dropdown > .item > .link:focus {
+    color: #334e68;
+  }
+</style>
+
+<nav class="main-navigation">
+  <button type="button" class="entry is-dropdown" data-dropdown-trigger>
+    Resources
+  </button>
+  <button type="button" class="entry is-dropdown" data-dropdown-trigger>
+    Customers
+  </button>
+  <a href="#" class="entry">Contact</a>
+</nav>
+
+<ul class="menu-dropdown is-hidden">
+  <li class="item">
+    <h3 class="title">Designs</h3>
+    <p class="text">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta, amet?
+    </p>
+    <a class="link" href="#">More</a>
+  </li>
+  <li class="item">
+    <h3 class="title">Tutorials</h3>
+    <p class="text">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta, amet?
+    </p>
+    <a class="link" href="#">More</a>
+  </li>
+  <li class="item">
+    <h3 class="title">Templates</h3>
+    <p class="text">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta, amet?
+    </p>
+    <a class="link" href="#">More</a>
+  </li>
+  <li class="item">
+    <h3 class="title">Mockups</h3>
+    <p class="text">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta, amet?
+    </p>
+    <a class="link" href="#">More</a>
+  </li>
+</ul>
+
+<script>
+  var menu = document.querySelector(".menu-dropdown");
+  var navigation = document.querySelector(".main-navigation");
+
+  function handleClick(evt) {
+    // Only if a click on a dropdown trigger happens, either close or open it.
+    if (evt.target.hasAttribute("data-dropdown-trigger")) {
+      if (menu.classList.contains("is-hidden")) {
+        menu.classList.remove("is-hidden");
+        navigation.classList.add("is-expanded");
+      } else {
+        menu.classList.add("is-hidden");
+        navigation.classList.remove("is-expanded");
+      }
+
+      return;
+    }
+
+    // If a click happens somewhere outside the dropdown, close it.
+    if (!evt.target.closest(".menu-dropdown")) {
+      menu.classList.add("is-hidden");
+      navigation.classList.remove("is-expanded");
+    }
+  }
+
+  window.addEventListener("click", handleClick);
+</script>
