@@ -1,0 +1,8 @@
+[
+  {
+    "field": "INS_DATE",
+    "title": "Insert Date",
+    "width": 120,
+    "template": "#=kendo.toString(new Date(INS_DATE), 'dd/MM/yyyy HH:mm:ss' )#"
+  }
+]
