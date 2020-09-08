@@ -1,34 +1,44 @@
 <html>
   <style>
-    body {
-      font: 12pt Georgia, "Times New Roman", Times, serif;
-      line-height: 1.3;
-    }
-
-    @page {
-      margin: 0;
-      size: A4;
-      margin-bottom: 20mm;
-    }
-
-    footer {
-      visibility: hidden;
-      position: absolute;
-      margin-left: 180mm;
-    }
-
-    @media print {
-      footer {
-        visibility: visible;
-      }
-    }
-
     #dpi {
       height: 1in;
       left: -100%;
       position: absolute;
       top: -100%;
       width: 1in;
+    }
+
+    body {
+      font: 12pt Georgia, "Times New Roman", Times, serif;
+      line-height: 1.3;
+    }
+
+    footer {
+      position: absolute;
+      margin-left: 150mm;
+    }
+
+    @media screen {
+      body {
+        size: A4;
+        margin: 20mm;
+      }
+
+      footer {
+        visibility: hidden;
+      }
+    }
+
+    @page {
+      size: A4;
+      margin: 20mm;
+    }
+
+    @media print {
+      footer {
+        visibility: visible;
+        color: red;
+      }
     }
   </style>
   <body>
@@ -41,7 +51,7 @@
         const dpi = document.getElementById("dpi").offsetHeight;
         const pageSize = 297;
         const fontSize = 10;
-        const pageMargin = 20;
+        const pageVerticalMargin = 40;
 
         let scrollHeight = Math.max(
           document.body.scrollHeight,
@@ -53,17 +63,17 @@
         );
 
         let scrollHeightMm = pixelsToMm(scrollHeight, dpi);
-        let pages = Math.ceil(scrollHeightMm / (297 - pageMargin)) + 1;
+        let pages = Math.ceil(scrollHeightMm / (297 - pageVerticalMargin)) + 1;
 
         console.log("document scrollable height", scrollHeight);
         console.log("document pages count", pages);
 
         if (pages > 0 && pages < 2000) {
           for (let i = 1; i <= pages; ++i) {
-            let top = pageSize * i - fontSize - pageMargin * i;
+            let top = pageSize * i - fontSize - pageVerticalMargin * i;
             console.log("page", i, "skip", top, "mm");
             document.body.innerHTML +=
-              '<footer style="color:red; top: ' +
+              '<footer style="top: ' +
               top +
               'mm">' +
               (i + " / " + pages) +
