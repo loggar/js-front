@@ -1,0 +1,34 @@
+<html>
+  <header>
+    <style>
+      /* Edit the CSS here and check out the AST! */
+      pre {
+        padding: 0 1em;
+        tab-size: 2;
+        font: 80%/1.4 Consolas, Monaco, monospace;
+      }
+    </style>
+  </header>
+  <body>
+    <pre id="AST"></pre>
+    <script type="module">
+      // See: https://lea.verou.me/2020/07/import-non-esm-libraries-in-es-modules,-with-client-side-vanilla-js/
+      import "data:text/javascript,self.module = {}";
+      import "https://cdn.jsdelivr.net/gh/reworkcss/css@latest/lib/parse/index.js";
+      let parse = module.exports;
+
+      let update = () => {
+        let css = document.querySelector("style").textContent;
+        let ast = parse(css);
+        AST.textContent = JSON.stringify(ast, null, "\t");
+      };
+
+      update();
+
+      // Observe CSS changes
+      new MutationObserver(update).observe(document.head, {
+        childList: true,
+      });
+    </script>
+  </body>
+</html>

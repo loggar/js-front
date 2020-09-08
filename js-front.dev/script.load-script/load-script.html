@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script>
+      "use strict";
+
+      function loadScript(src) {
+        const script = document.createElement("script");
+
+        script.setAttribute("async", true);
+        script.setAttribute("src", src);
+
+        document.head.appendChild(script);
+
+        return new Promise(function(resolve) {
+          script.addEventListener("load", resolve);
+        });
+      }
+
+      async function main() {
+        await Promise.all([
+          loadScript("./script-1.js"),
+          loadScript("./script-2.js")
+        ]);
+        console.log("script loaded");
+        // You now have access to all things exposed by those scripts
+      }
+
+      main();
+    </script>
+  </body>
+</html>

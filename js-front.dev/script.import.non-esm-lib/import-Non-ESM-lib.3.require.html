@@ -1,0 +1,16 @@
+<script>
+  async function require(path) {
+    let _module = window.module;
+    window.module = {};
+    await import(path);
+    let exports = module.exports;
+    window.module = _module; // restore global
+    return exports;
+  }
+
+  (async () => {
+    // top-level await cannot come soon enough…
+    let parse = await require("https://cdn.jsdelivr.net/gh/reworkcss/css@latest/lib/parse/index.js");
+    console.log(parse("body { color: red }"));
+  })();
+</script>
