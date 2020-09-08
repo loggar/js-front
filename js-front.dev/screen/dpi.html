@@ -1,0 +1,19 @@
+<html>
+  <style>
+    #dpi {
+      height: 1in;
+      left: -100%;
+      position: absolute;
+      top: -100%;
+      width: 1in;
+    }
+  </style>
+  <body>
+    <div id="dpi"></div>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        console.log(document.getElementById("dpi").offsetHeight);
+      });
+    </script>
+  </body>
+</html>
