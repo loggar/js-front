@@ -1,0 +1,15 @@
+html {
+  font-size: 10px;
+}
+
+/*
+if you changed the font-size to 10px within the CSS, then the calculated sizes would end up being:
+
+1rem = 10px (1 * 10)
+2rem = 20px (2 * 10)
+.5rem = 5px (.5 * 10)
+
+100% = 16px;
+200% = 32px; 
+50% = 8px;
+*/

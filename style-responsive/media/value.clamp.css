@@ -1,0 +1,4 @@
+/* clamp(min, preferred, max) */
+.box {
+  font-size: clamp(1rem, 40px, 4rem);
+}

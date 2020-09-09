@@ -1,0 +1,17 @@
+html {
+  font-size: min(1rem, 22px); /* Stays between 16px and 22px */
+}
+
+.box {
+  width: min(
+    45%,
+    600px
+  ); /* If 45% computes to a value smaller than 600px, the browser uses 45% as the width */
+}
+
+.box {
+  width: max(
+    60%,
+    600px
+  ); /* If 60% computes to a value greater than 600px, the browser uses 60% as the width */
+}
