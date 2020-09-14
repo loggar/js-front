@@ -1,0 +1,198 @@
+<html>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Anton", sans-serif;
+        background-color: #eee;
+        color: #333;
+        min-height: 100vh;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        align-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .hidden {
+        position: fixed;
+        top: -10000px;
+        left: -10000px;
+        visibility: hidden;
+      }
+
+      .container {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        margin: 1em;
+      }
+
+      .square {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+      }
+
+      .options {
+        margin: 1em;
+      }
+
+      label.axis {
+        display: inline-block;
+        padding: 0.5em 1em;
+        border: 1px solid #777;
+        border-radius: 4px;
+      }
+
+      #axesX:checked ~ .container > .square {
+        -webkit-animation: moveOnX 2s infinite ease-in-out alternate;
+        animation: moveOnX 2s infinite ease-in-out alternate;
+      }
+
+      #axesX:checked ~ .options > label.axesX {
+        background-color: greenyellow;
+      }
+
+      @-webkit-keyframes moveOnX {
+        from {
+          -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+        }
+        to {
+          -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+        }
+      }
+
+      @keyframes moveOnX {
+        from {
+          -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+        }
+        to {
+          -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+        }
+      }
+
+      #axesY:checked ~ .container > .square {
+        -webkit-animation: moveOnY 2s infinite ease-in-out alternate;
+        animation: moveOnY 2s infinite ease-in-out alternate;
+      }
+
+      #axesY:checked ~ .options > label.axesY {
+        background-color: greenyellow;
+      }
+
+      @-webkit-keyframes moveOnY {
+        from {
+          -webkit-transform: translateY(-50px);
+          transform: translateY(-50px);
+        }
+        to {
+          -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+        }
+      }
+
+      @keyframes moveOnY {
+        from {
+          -webkit-transform: translateY(-50px);
+          transform: translateY(-50px);
+        }
+        to {
+          -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+        }
+      }
+
+      #axesZ:checked ~ .container > .square {
+        -webkit-animation: moveOnZ 2s infinite ease-in-out alternate;
+        animation: moveOnZ 2s infinite ease-in-out alternate;
+      }
+
+      #axesZ:checked ~ .options > label.axesZ {
+        background-color: greenyellow;
+      }
+
+      @-webkit-keyframes moveOnZ {
+        from {
+          -webkit-transform: translateZ(-50px);
+          transform: translateZ(-50px);
+        }
+        to {
+          -webkit-transform: translateZ(50px);
+          transform: translateZ(50px);
+        }
+      }
+
+      @keyframes moveOnZ {
+        from {
+          -webkit-transform: translateZ(-50px);
+          transform: translateZ(-50px);
+        }
+        to {
+          -webkit-transform: translateZ(50px);
+          transform: translateZ(50px);
+        }
+      }
+
+      label.usePerspective {
+        display: block;
+        text-align: center;
+        padding: 0.5em 1em;
+        border: 1px solid #777;
+        border-radius: 4px;
+        margin-top: 1.5em;
+      }
+
+      #usePerspective:checked ~ .container {
+        -webkit-perspective: 240px;
+        perspective: 240px;
+      }
+
+      #usePerspective:checked ~ .options label.usePerspective {
+        background-color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="radio" name="rotateAxis" class="hidden" id="axesX" checked />
+    <input type="radio" name="rotateAxis" class="hidden" id="axesY" />
+    <input type="radio" name="rotateAxis" class="hidden" id="axesZ" />
+
+    <input type="checkbox" class="hidden" id="usePerspective" />
+
+    <div class="container">
+      <div class="square"></div>
+    </div>
+
+    <div class="options">
+      <h3>Move (translate) on:</h3>
+      <label for="axesX" class="axis axesX">X axis</label>
+      <label for="axesY" class="axis axesY">Y axis</label>
+      <label for="axesZ" class="axis axesZ">Z axis</label>
+
+      <label for="usePerspective" class="usePerspective">Use perspective</label>
+    </div>
+    <script></script>
+  </body>
+</html>

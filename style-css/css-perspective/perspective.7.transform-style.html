@@ -1,0 +1,132 @@
+<html>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Anton", sans-serif;
+        background-color: #eee;
+        color: #333;
+        min-height: 100vh;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        align-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .hidden {
+        position: fixed;
+        top: -10000px;
+        left: -10000px;
+        visibility: hidden;
+      }
+
+      .container {
+        position: relative;
+        width: 280px;
+        height: 200px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        margin: 1em;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+      }
+
+      .square {
+        width: 100px;
+        height: 100px;
+        -webkit-transform: rotateY(-30deg);
+        transform: rotateY(-30deg);
+        position: absolute;
+      }
+
+      .square.A {
+        background-color: green;
+        -webkit-transform: rotateY(-30deg) translateZ(100px);
+        transform: rotateY(-30deg) translateZ(100px);
+      }
+
+      .square.B {
+        background-color: #d50000;
+      }
+
+      .square.C {
+        background-color: #304ffe;
+        -webkit-transform: rotateY(-30deg) translateZ(-100px);
+        transform: rotateY(-30deg) translateZ(-100px);
+      }
+
+      .options {
+        margin: 1em;
+      }
+
+      label {
+        display: inline-block;
+        padding: 0.5em 1em;
+        border: 1px solid #777;
+        border-radius: 4px;
+      }
+
+      #ts-flat:checked ~ .container {
+        -webkit-transform-style: flat;
+        transform-style: flat;
+      }
+
+      #ts-flat:checked ~ .options > label.flat {
+        background-color: greenyellow;
+      }
+
+      #ts-preserve:checked ~ .container {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+      }
+
+      #ts-preserve:checked ~ .options > label.preserve {
+        background-color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <input
+      type="radio"
+      name="transformStyle"
+      class="hidden"
+      id="ts-flat"
+      checked
+    />
+    <input type="radio" name="transformStyle" class="hidden" id="ts-preserve" />
+
+    <div class="container">
+      <div class="square A"></div>
+      <div class="square B"></div>
+      <div class="square C"></div>
+    </div>
+
+    <div class="options">
+      <h3>transform-style:</h3>
+      <label for="ts-flat" class="transformStyle flat">flat</label>
+      <label for="ts-preserve" class="transformStyle preserve"
+        >preserve-3d</label
+      >
+    </div>
+    <script></script>
+  </body>
+</html>

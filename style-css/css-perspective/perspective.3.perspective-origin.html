@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Anton", sans-serif;
+        background-color: #eee;
+        color: #333;
+        min-height: 100vh;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        align-content: center;
+        -webkit-box-align: end;
+        align-items: flex-end;
+        flex-wrap: wrap;
+      }
+
+      .outerContainer {
+        width: 200px;
+        margin: 1em;
+      }
+
+      .container {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-perspective: 240px;
+        perspective: 240px;
+      }
+
+      .square {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        -webkit-transform: rotateY(90deg);
+        transform: rotateY(90deg);
+      }
+
+      .containerA > .square {
+        -webkit-animation: moveSquare 4s infinite ease-in-out alternate;
+        animation: moveSquare 4s infinite ease-in-out alternate;
+      }
+
+      @-webkit-keyframes moveSquare {
+        from {
+          -webkit-transform: translateX(-100px) rotateY(90deg);
+          transform: translateX(-100px) rotateY(90deg);
+        }
+        to {
+          -webkit-transform: translateX(100px) rotateY(90deg);
+          transform: translateX(100px) rotateY(90deg);
+        }
+      }
+
+      @keyframes moveSquare {
+        from {
+          -webkit-transform: translateX(-100px) rotateY(90deg);
+          transform: translateX(-100px) rotateY(90deg);
+        }
+        to {
+          -webkit-transform: translateX(100px) rotateY(90deg);
+          transform: translateX(100px) rotateY(90deg);
+        }
+      }
+
+      .containerB {
+        -webkit-animation: moveOrigin 4s infinite ease-in-out alternate;
+        animation: moveOrigin 4s infinite ease-in-out alternate;
+      }
+
+      @-webkit-keyframes moveOrigin {
+        from {
+          -webkit-perspective-origin: left;
+          perspective-origin: left;
+        }
+        to {
+          -webkit-perspective-origin: right;
+          perspective-origin: right;
+        }
+      }
+
+      @keyframes moveOrigin {
+        from {
+          -webkit-perspective-origin: left;
+          perspective-origin: left;
+        }
+        to {
+          -webkit-perspective-origin: right;
+          perspective-origin: right;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outerContainer">
+      The square is moving from side to side while the perspective-origin is
+      centered
+      <div class="container containerA">
+        <div class="square"></div>
+      </div>
+    </div>
+
+    <div class="outerContainer">
+      The square is centered while to perspective-origin is moving from side to
+      side
+      <div class="container containerB">
+        <div class="square"></div>
+      </div>
+    </div>
+    <script></script>
+  </body>
+</html>

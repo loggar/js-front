@@ -1,0 +1,235 @@
+<html>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Anton", sans-serif;
+        background-color: #eee;
+        color: #333;
+        min-height: 100vh;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        align-content: center;
+        -webkit-box-align: end;
+        align-items: flex-end;
+        flex-wrap: wrap;
+      }
+
+      .outerContainer {
+        width: 320px;
+        margin: 1em;
+      }
+
+      .container {
+        position: relative;
+        width: 320px;
+        height: 240px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        margin: 0.5em auto;
+      }
+
+      .square {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        font-size: 80px;
+        color: lightgreen;
+      }
+
+      .squareA {
+        -webkit-animation: sqrA 4s infinite ease-in-out;
+        animation: sqrA 4s infinite ease-in-out;
+      }
+
+      @-webkit-keyframes sqrA {
+        0%,
+        10% {
+          -webkit-transform: none;
+          transform: none;
+        }
+        50% {
+          -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+        }
+        90%,
+        100% {
+          -webkit-transform: rotate(30deg) translateX(140px);
+          transform: rotate(30deg) translateX(140px);
+        }
+      }
+
+      @keyframes sqrA {
+        0%,
+        10% {
+          -webkit-transform: none;
+          transform: none;
+        }
+        50% {
+          -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+        }
+        90%,
+        100% {
+          -webkit-transform: rotate(30deg) translateX(140px);
+          transform: rotate(30deg) translateX(140px);
+        }
+      }
+      .squareB {
+        -webkit-animation: sqrB 4s infinite ease-in-out;
+        animation: sqrB 4s infinite ease-in-out;
+      }
+
+      @-webkit-keyframes sqrB {
+        0%,
+        10% {
+          -webkit-transform: none;
+          transform: none;
+        }
+        50% {
+          -webkit-transform: translateX(140px);
+          transform: translateX(140px);
+        }
+        90%,
+        100% {
+          -webkit-transform: translateX(140px) rotate(30deg);
+          transform: translateX(140px) rotate(30deg);
+        }
+      }
+
+      @keyframes sqrB {
+        0%,
+        10% {
+          -webkit-transform: none;
+          transform: none;
+        }
+        50% {
+          -webkit-transform: translateX(140px);
+          transform: translateX(140px);
+        }
+        90%,
+        100% {
+          -webkit-transform: translateX(140px) rotate(30deg);
+          transform: translateX(140px) rotate(30deg);
+        }
+      }
+
+      .lineSquare {
+        width: 100px;
+        height: 100px;
+        border: 2px dashed;
+        position: absolute;
+        top: 30px;
+        left: 40px;
+      }
+
+      .lineSquareA,
+      .lineSquareD {
+        border-color: #d50000;
+      }
+
+      .lineSquareB,
+      .lineSquareE {
+        border-color: #aa00ff;
+      }
+
+      .lineSquareC,
+      .lineSquareF {
+        border-color: #304ffe;
+      }
+
+      .lineSquareB {
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
+      }
+
+      .lineSquareC {
+        -webkit-transform: rotate(30deg) translateX(140px);
+        transform: rotate(30deg) translateX(140px);
+      }
+
+      .lineSquareE {
+        -webkit-transform: translateX(140px);
+        transform: translateX(140px);
+      }
+
+      .lineSquareF {
+        -webkit-transform: translateX(140px) rotate(30deg);
+        transform: translateX(140px) rotate(30deg);
+      }
+
+      .outerContainer > span {
+        display: block;
+      }
+
+      .outerContainer > span::before {
+        display: inline-block;
+        content: "";
+        width: 1em;
+        height: 1em;
+        margin-right: 0.25em;
+        border: 2px dashed;
+      }
+
+      .outerContainer > span:nth-child(3)::before {
+        border-color: #d50000;
+      }
+
+      .outerContainer > span:nth-child(4)::before {
+        border-color: #aa00ff;
+      }
+
+      .outerContainer > span:nth-child(5)::before {
+        border-color: #304ffe;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outerContainer">
+      <code>transform: rotate(30deg) translateX(140px);</code>
+      <div class="container containerA">
+        <div class="square squareA">A</div>
+        <div class="lineSquare lineSquareA"></div>
+        <div class="lineSquare lineSquareB"></div>
+        <div class="lineSquare lineSquareC"></div>
+      </div>
+      <span>Original position</span>
+      <span>Step 1: Rotate</span>
+      <span>Step 2: Translate</span>
+    </div>
+
+    <div class="outerContainer">
+      <code>transform: translateX(140px) rotate(30deg);</code>
+      <div class="container containerB">
+        <div class="square squareB">B</div>
+        <div class="lineSquare lineSquareD"></div>
+        <div class="lineSquare lineSquareE"></div>
+        <div class="lineSquare lineSquareF"></div>
+      </div>
+      <span>Original position</span>
+      <span>Step 1: Translate</span>
+      <span>Step 2: Rotate</span>
+    </div>
+    <script></script>
+  </body>
+</html>
