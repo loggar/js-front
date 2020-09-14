@@ -1,0 +1,14 @@
+<script type="importmap">
+  {
+    "imports": {
+      "b": "/src/b.js",
+      "lowdash-intersection": "https://cdn.jsdelivr.net/npm/lodash-es@4.17.15/intersection.min.js"
+    }
+  }
+</script>
+<script type="module">
+  import { hellob } from "b";
+  hellob();
+  import intersection from "lowdash-intersection";
+  console.log(intersection([2, 1], [2, 3]));
+</script>

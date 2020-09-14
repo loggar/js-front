@@ -1,0 +1,7 @@
+<script type="module">
+  if (new Date().getSeconds() < 30) {
+    import("/src/a.js").then(({ helloa }) => helloa());
+  } else {
+    import("/src/b.js").then(({ hellob }) => hellob());
+  }
+</script>

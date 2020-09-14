@@ -1,0 +1,13 @@
+<script type="module">
+  import { hello } from "./import.native.way.a.js";
+  // import { hello } from "a";
+
+  hello();
+</script>
+<script>
+  // Cannot use import statement outside a module
+  // import { hello } from "./import.native.way.a.js";
+  // import.native.way.html:9 Uncaught SyntaxError: Cannot use import statement outside a module
+
+  hello();
+</script>
