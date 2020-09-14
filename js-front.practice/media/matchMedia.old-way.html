@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-color: plum;
+      }
+      @media (min-width: 768px) {
+        body {
+          background-color: tomato;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function checkMediaQuery() {
+        // If the inner width of the window is greater then 768px
+        if (window.innerWidth > 768) {
+          // Then log this message to the console
+          console.log("Media Query Matched!");
+        }
+      }
+
+      // Add a listener for when the window resizes
+      window.addEventListener("resize", checkMediaQuery);
+    </script>
+  </body>
+</html>
