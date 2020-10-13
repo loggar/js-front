@@ -1,0 +1,7 @@
+input[readonly] {
+  pointer-events: none;
+}
+
+input[disabled] {
+  pointer-events: none;
+}
