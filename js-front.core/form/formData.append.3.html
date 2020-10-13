@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      let myForm = document.getElementById("myForm");
+      let formData = new FormData();
+      formData.append("_New_files_51", "A");
+      formData.append("_New_files_51", "B");
+      console.log(formData.getAll("_New_files_51"));
+    </script>
+  </body>
+</html>
