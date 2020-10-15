@@ -1,0 +1,34 @@
+<script src="scroll-positions.js"></script>
+<!-- drag() requires this -->
+<script src="mouse.drag.js"></script>
+<!-- defines drag() -->
+<!-- The element to be dragged -->
+<div
+  style="
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    width: 250px;
+    background-color: white;
+    border: solid black;
+  "
+>
+  <!-- The "titlebar" to drag it with. Note the onmousedown attribute. -->
+  <div
+    style="
+      background-color: gray;
+      border-bottom: dotted black;
+      padding: 3px;
+      font-family: sans-serif;
+      font-weight: bold;
+    "
+    onmousedown="drag(this.parentNode, event);"
+  >
+    Drag Me
+    <!-- The content of the titlebar -->
+  </div>
+  <!-- Content of the draggable element -->
+  <p>This is a test. Testing, testing, testing.</p>
+  <p>Test</p>
+  <p>Test</p>
+</div>
