@@ -1,0 +1,15 @@
+<picture>
+  <source data-srcset="path/to/image.webp" type="image/webp" />
+  <source data-srcset="path/to/image.jpg" />
+  <img
+    loading="lazy"
+    class="lazyload"
+    src="path/to/placeholder/image.png"
+    data-src="path/to/image.jpg"
+    alt="Image description"
+  />
+</picture>
+
+<!--
+  class="lazyload" is used by the lazyload fallback plugin such as lazysizes (https://github.com/aFarkas/lazysizes).
+-->

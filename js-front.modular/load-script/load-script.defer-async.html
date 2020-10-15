@@ -1,0 +1,8 @@
+<script defer src="/path/to/script.js"></script>
+<script async src="/path/to/script.js"></script>
+
+<!--
+  We use defer for scripts that need the whole DOM and/or their relative execution order is important. It tells the browser to load the page first and then load the script in the background.
+
+  We use async for independent scripts that can be executed in any order. This script doesn't wait for any other scripts and can loaded in parallel with other scripts with async scripts.
+-->
