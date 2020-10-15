@@ -14,7 +14,7 @@
       margin: auto;
     }
 
-    footer {
+    footer_pageno {
       position: absolute;
       margin-left: 150mm;
       font-size: 8px;
@@ -29,7 +29,7 @@
         margin-right: 20mm;
       }
 
-      footer {
+      footer_pageno {
         visibility: hidden;
         color: red;
         background-color: yellow;
@@ -45,7 +45,7 @@
     }
 
     @media print {
-      footer {
+      footer_pageno {
         visibility: visible;
         color: red;
       }
@@ -56,7 +56,7 @@
       window.addEventListener("DOMContentLoaded", function () {
         const dpi = document.getElementById("dpi").offsetHeight || 96;
         const paperHeight = 297;
-        const pageFooterHeight = 6;
+        const pageNoHeight = 6;
         const screenVerticalMargin = 40;
         const pageVerticalMarginT = 20;
         const pageVerticalMarginB = 20;
@@ -85,14 +85,14 @@
             let top =
               paperHeight * i -
               (pageVerticalMarginT + pageVerticalMarginB) * i -
-              pageFooterHeight;
+              pageNoHeight;
             console.log("page", i, "skip", top, "mm");
             document.body.innerHTML +=
-              '<footer style="top: ' +
+              '<footer_pageno style="top: ' +
               top +
               'mm">' +
               (i + " / " + pages) +
-              "</footer>";
+              "</footer_pageno>";
           }
         }
       });
