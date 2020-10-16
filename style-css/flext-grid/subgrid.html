@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 50px 70vh 50px;
+      }
+      .subgrid {
+        grid-column: 2 / 4;
+        grid-row: 1 / 3;
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: subgrid;
+      }
+      .subgrid p {
+        background: turquoise;
+        color: black;
+      }
+      /* General styling */
+      div {
+        margin: 40px 40px 40px 20px;
+      }
+      p,
+      section {
+        background-color: slateblue;
+        color: white;
+        margin: 0;
+        font-size: 1.25rem;
+        border: 1px white solid;
+      }
+      p {
+        /* flexbox layout added to paragraphs for easy horizontal and vertical alignment of text, it doesn't have any other purpose*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <p>One</p>
+      <p>Two</p>
+      <p>Three</p>
+      <p>Four</p>
+      <section class="subgrid">
+        <p>Five/One</p>
+        <p>Five/Two</p>
+        <p>Five/Three</p>
+        <p>Five/Four</p>
+      </section>
+      <p>Six</p>
+      <p>Seven</p>
+      <p>Eight</p>
+      <p>Nine</p>
+    </div>
+  </body>
+</html>

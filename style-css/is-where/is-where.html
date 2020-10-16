@@ -1,0 +1,35 @@
+<div class="my-class-is">
+  <h2>:is Stays Yellow as It's Not Overriden</h2>
+  <p>:is paragraph <em>paragraph</em> paragraph</p>
+  <ul>
+    <li><em>:is List item 1</em></li>
+    <li>:is List item 2</li>
+  </ul>
+  <section>:is section <em>section</em> section</section>
+</div>
+<div class="my-class-where">
+  <h2>:where Turns Red as It's Overriden</h2>
+  <p>:where paragraph <em>paragraph</em> paragraph</p>
+  <ul>
+    <li><em>:where List item 1</em></li>
+    <li>:where List item 2</li>
+  </ul>
+  <section>:where section <em>section</em> section</section>
+</div>
+
+<style>
+  /* :is is not overriden */
+  .my-class-is :is(p, li, section) em {
+    background: yellow;
+  }
+  .my-class-is em {
+    background: red;
+  }
+  /* :where is overriden */
+  .my-class-where :where(p, li, section) em {
+    background: yellow;
+  }
+  .my-class-where em {
+    background: red;
+  }
+</style>

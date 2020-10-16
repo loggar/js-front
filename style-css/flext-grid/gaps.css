@@ -1,0 +1,12 @@
+.flex-container {
+  row-gap: 10px;
+  column-gap: 15px;
+}
+
+.flex-container {
+  gap: 10px 15px;
+}
+
+.flex-container {
+  gap: 10px;
+}
