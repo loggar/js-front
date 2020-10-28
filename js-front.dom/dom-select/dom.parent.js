@@ -1,0 +1,3 @@
+divChildNode.parentNode;
+
+divChildNode.parentElement;

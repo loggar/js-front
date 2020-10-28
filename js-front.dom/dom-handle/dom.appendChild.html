@@ -1,0 +1,12 @@
+<div id="divNode">
+  <div>Div Node Child</div>
+  <div>Div Node Child</div>
+  <p>Paragraph Node Child</p>
+</div>
+
+<script>
+  const pEl = document.createElement("p");
+  pEl.append(createTextNode("Paragraph Node Child"));
+
+  divNode.appendChild(pEl);
+</script>

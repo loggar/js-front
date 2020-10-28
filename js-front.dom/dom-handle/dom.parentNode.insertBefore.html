@@ -1,0 +1,11 @@
+<div id="parent">
+  Parent Node
+  <div id="child">Child Node</div>
+</div>
+
+<script>
+  const newNode = document.createElement("b");
+  newNode.appendChild(document.createTextNode("Bold Child Node"));
+
+  parent.insertBefore(newNode, child);
+</script>

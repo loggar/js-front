@@ -1,0 +1,10 @@
+<div id="div1Node">Div 1</div>
+
+<div id="div2Node">Div 2</div>
+
+<script>
+  div2Node.appendChild(div1Node.cloneNode());
+
+  // To clone a node with its whole children subtree, pass the boolean true to cloneNode.
+  div2Node.appendChild(div1Node.cloneNode(true));
+</script>

@@ -1,0 +1,14 @@
+<div>
+  Other Node
+  <div id="othernode">Other Node Child</div>
+</div>
+
+<div id="parent">
+  Parent Node
+  <div id="child">Child Node</div>
+</div>
+
+<script>
+  // If you refer to an existing Node in the DOM, the Node will be removed from its position and placed in the new position.
+  parent.insertBefore(othernode, child);
+</script>
