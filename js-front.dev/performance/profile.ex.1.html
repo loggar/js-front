@@ -1,0 +1,32 @@
+<script>
+  function sendTrace(trace) {
+    console.log(trace);
+  }
+
+  function doWork() {
+    // ..
+  }
+
+  (async function fn() {
+    const profiler = await performance.profile({ sampleInterval: 10 });
+    for (let i = 0; i < 1000000; i++) {
+      doWork();
+    }
+    const trace = await profiler.stop();
+    sendTrace(trace);
+  })();
+</script>
+<!--
+// Begin a new profiling session
+// Provide a sampleInterval (period which the session obtains samples)
+const profiler = await performance.profile({ sampleInterval: 10 });
+
+// Do some expensive work
+performSomeTask();
+
+// Stop the profiler and return the trace captured
+const trace = await profiler.stop();
+
+// Send the trace to an endpoint for reporting
+sendTraceToAnalytics(trace);
+-->
