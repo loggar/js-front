@@ -2,6 +2,6 @@
   height: 100vh;
   display: grid;
 }
-.parent .child{
- margin: auto;
- }
+.parent .child {
+  margin: auto;
+}
