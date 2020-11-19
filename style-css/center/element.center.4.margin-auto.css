@@ -1,0 +1,7 @@
+.parent {
+  height: 100vh;
+  display: grid;
+}
+.parent .child{
+ margin: auto;
+ }
