@@ -1,0 +1,162 @@
+<html>
+  <style>
+    #grid-start {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 75px;
+      gap: 10px;
+      justify-items: start;
+      background-color: #f1f1f1;
+    }
+    #grid-end {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 75px;
+      gap: 10px;
+      justify-items: end;
+      background-color: #f1f1f1;
+    }
+    #grid-center {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 75px;
+      gap: 10px;
+      justify-items: center;
+      background-color: #f1f1f1;
+    }
+    #grid-left {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      justify-items: left;
+      background-color: #f1f1f1;
+    }
+    #grid-right {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      justify-items: right;
+      background-color: #f1f1f1;
+    }
+    #grid-stretch {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 75px;
+      gap: 10px;
+      justify-items: stretch;
+      background-color: #f1f1f1;
+    }
+    #grid-stretch .red {
+      width: 40px;
+    }
+    #grid-stretch .green {
+      width: auto;
+    }
+    #grid-stretch .blue {
+      width: auto;
+    }
+    #grid-self-start {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 75px;
+      gap: 10px;
+      justify-items: self-start;
+      background-color: #f1f1f1;
+    }
+    #grid-self-end {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 75px;
+      gap: 10px;
+      justify-items: self-end;
+      background-color: #f1f1f1;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+    }
+    .container-div {
+      width: 60%;
+    }
+    div {
+      padding: 20px;
+      width: 25%;
+      border: 1px solid #000;
+    }
+    .red {
+      background: #d00;
+    }
+    .green {
+      background: yellowgreen;
+    }
+    .blue {
+      background: royalblue;
+    }
+  </style>
+  <body>
+    <!-- Demo for justify-items article CSS Tricks by Mohit Khare(mohitkhare.com)  -->
+    <h2>Center</h2>
+    <div id="grid-center" class="container-div">
+      <div class="red"></div>
+      <div class="green"></div>
+      <div class="blue"></div>
+    </div>
+
+    <h2>Start</h2>
+    <div id="grid-start" class="container-div">
+      <div class="red"></div>
+      <div class="green"></div>
+      <div class="blue"></div>
+    </div>
+
+    <h2>End</h2>
+    <div id="grid-end" class="container-div">
+      <div class="red"></div>
+      <div class="green"></div>
+      <div class="blue"></div>
+    </div>
+
+    <h2>Left</h2>
+    <div id="grid-left" class="container-div">
+      <div class="red"></div>
+      <div class="green"></div>
+      <div class="blue"></div>
+    </div>
+
+    <h2>Right</h2>
+    <div id="grid-right" class="container-div">
+      <div class="red"></div>
+      <div class="green"></div>
+      <div class="blue"></div>
+    </div>
+
+    <h2>Stretch</h2>
+    <div id="grid-stretch" class="container-div">
+      <div class="red"></div>
+      <div class="green"></div>
+      <div class="blue"></div>
+    </div>
+
+    <h2>Self Start</h2>
+    <div id="grid-self-start" class="container-div">
+      <div class="red"></div>
+      <div class="green"></div>
+      <div class="blue"></div>
+    </div>
+
+    <h2>Self End</h2>
+    <div id="grid-self-end" class="container-div">
+      <div class="red"></div>
+      <div class="green"></div>
+      <div class="blue"></div>
+    </div>
+  </body>
+</html>

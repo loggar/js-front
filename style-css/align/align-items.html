@@ -1,0 +1,50 @@
+<html>
+  <style>
+    .safe-container {
+      display: flex;
+      flex-direction: column;
+      align-items: safe center;
+      margin: 1rem 0;
+      font-size: 3rem;
+    }
+
+    .unsafe-container {
+      display: flex;
+      flex-direction: column;
+      align-items: unsafe center;
+      margin: 1rem 0;
+      font-size: 3rem;
+    }
+
+    .safe-container span {
+      border: 1px solid #0b0;
+    }
+
+    .unsafe-container span {
+      border: 1px solid #00b;
+    }
+
+    p,
+    h4 {
+      text-align: center;
+    }
+  </style>
+  <body>
+    <!-- Demo for justify-items article CSS Tricks by Mohit Khare(mohitkhare.com)  -->
+    <h4>Safe container</h4>
+    <div class="safe-container">
+      <span>Understand</span>
+      <span>Safe</span>
+      <span>Property!</span>
+    </div>
+
+    <h4>Unsafe container</h4>
+    <div class="unsafe-container">
+      <span>Understand</span>
+      <span>unsafe</span>
+      <span>property!</span>
+    </div>
+
+    <p>Reduce width of this container to see it in action</p>
+  </body>
+</html>
