@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>window resize tracker</title>
+    <script src="./window.watchResize.js"></script>
+  </head>
+  <body>
+    <script>
+      // do stuff after breakpoint
+      window.watchResize(function () {
+        var threshold = 400;
+        console.log(
+          "window size:" +
+            window.watch_resize_browser_width +
+            (window.watch_resize_browser_width < threshold
+              ? " window size is smaller than " + threshold
+              : "")
+        );
+      });
+    </script>
+  </body>
+</html>
