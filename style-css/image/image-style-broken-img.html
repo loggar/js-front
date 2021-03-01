@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <style>
+      img {
+        display: inline-block;
+        font-family: Arial, sans-serif;
+        font-weight: 300;
+        line-height: 2;
+        text-align: center;
+
+        min-width: 300px;
+        min-height: 50px;
+        position: relative;
+      }
+
+      img::before {
+        content: "";
+        width: 100%;
+        height: calc(100% + 10px);
+        background-color: #ccc;
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: -2px;
+        transform: translateY(-50%);
+      }
+
+      img::after {
+        content: "Fail to load" " " attr(alt);
+
+        font-size: 18px;
+        color: rgb(100, 100, 100);
+
+        display: block;
+        position: absolute;
+        z-index: 2;
+        top: 5px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="https://no-such-url/no-such-image.png" alt="This-Image" />
+  </body>
+</html>
