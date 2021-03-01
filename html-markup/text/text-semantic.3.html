@@ -1,0 +1,192 @@
+<html>
+  <head>
+    <style>
+      #reveal:checked ~ div ins {
+        padding: 0 0.125em;
+        text-decoration: none;
+        background-color: lightgreen;
+        transition: 3s;
+      }
+      #reveal:checked ~ div del {
+        padding: 0 0.125em;
+        background-color: pink;
+        visibility: visible;
+        transition: 3s;
+        display: inline;
+        width: auto;
+        height: auto;
+      }
+      #reveal:checked ~ div mark {
+        padding: 0 0.125em;
+        background-color: yellow;
+        transition: 3s;
+      }
+      #reveal:checked ~ div .note {
+        padding: 0 0.125em;
+        background-color: lightblue;
+        transition: background-color 3s;
+        visibility: visible;
+        display: inline;
+        width: auto;
+        height: auto;
+      }
+      #reveal:checked ~ div aside.note {
+        padding: 0.5em 1em;
+        display: block;
+        width: auto;
+        height: auto;
+      }
+      #reveal:checked ~ div u {
+        text-decoration: none;
+        border-bottom: 3px red dashed;
+        transition: 3s;
+      }
+
+      del,
+      .note {
+        visibility: hidden;
+        background-color: transparent;
+        text-decoration: none;
+        display: inline-block;
+        overflow: hidden;
+        width: 0;
+        height: 0;
+      }
+      u,
+      ins,
+      mark {
+        text-decoration: none;
+        background-color: transparent;
+        border: none;
+      }
+
+      .edits {
+        margin-top: 5rem;
+        background: #eaeaea;
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+      }
+      .edits h2 {
+        margin: 0;
+      }
+      div {
+        max-width: 70ch;
+        margin: 1em auto;
+        font-size: 1.5em;
+        line-height: 1.75;
+      }
+
+      del:hover::after {
+        content: attr(datetime);
+        text-decoration: none;
+        position: absolute;
+        z-index: 100;
+        display: block;
+        background-color: rgba(255, 0, 0, 0.85);
+        padding: 0 0.5em;
+        top: 1.5em;
+        left: 1.5em;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+      }
+      ins,
+      del {
+        position: relative;
+      }
+      ins:hover::after {
+        content: attr(datetime);
+        text-decoration: none;
+        position: absolute;
+        z-index: 100;
+        display: block;
+        background-color: rgba(0, 255, 0, 0.85);
+        padding: 0 0.5em;
+        top: 1.5em;
+        left: 1.5em;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+      }
+    </style>
+  </head>
+  <body>
+    <input id="reveal" type="checkbox" /><label for="reveal"
+      >Fade in Edits</label
+    >
+    <div>
+      <aside class="note">
+        <p>Dear Mr. Meagher,</p>
+        <p>
+          Below I've marked up the edits I think you should make to your...
+          umm... letter.
+        </p>
+        <p>Sincerely</p>
+        <p>John C. Rhea</p>
+        <p>
+          <i
+            >P.S. I will definitely NOT being writing an article about editing
+            on the web using this... letter.</i
+          >
+        </p>
+      </aside>
+      <p>Dear Laura,</p>
+      <p>
+        Ever since<ins cite="#edit1" datetime="2020-11-01T14:17:00EST">
+          the day you brought a peanut butter and banana sandwich to lunch
+          in</ins
+        >
+        second grade, I've been in love with you<del
+          cite="#edit2"
+          datetime="2020-11-01T14:18:00EST"
+        >
+          and followed you everywhere you go</del
+        >.
+      </p>
+
+      <p>
+        Now, dearest Laura, let me list all the ways I love <mark>cheese</mark>
+      </p>
+      <ol>
+        <li>Gorgonzola</li>
+        <li>Limburger</li>
+        <li>
+          Cake<span class="note"> Cheesecake isn't really a "cheese"</span>
+        </li>
+        <li>Muenster</li>
+        <li>Roquefort</li>
+        <li>Brie</li>
+        <li>Feta</li>
+        <li>Cream</li>
+        <li>Colby</li>
+      </ol>
+      <aside class="note">
+        Mr. Meagher, I highly recommend you remove this list of preferred
+        cheeses and replace it with things you love about the woman you are
+        writing to. While I'm sure there are many people for whom your list
+        would be interesting if not welcome, that list rarely includes a
+        romantic interest in the midst of your profession of love. Though,
+        honestly, if she is as perfect for you as you believe, it may be the
+        exact thing you need to test that theory.
+      </aside>
+
+      <p>
+        Please, <u>Lura</u> tell me your answer. Will you wear my mathlete
+        letter jacket?
+      </p>
+      <p>
+        With
+        <del datetime="2020-11-01T14:23:00EST"
+          >super affectionate feelings from my deepest bowels</del
+        ><ins datetime="2020-11-01T14:25:00EST">Love</ins>
+      </p>
+      <p>
+        <ins datetime="2020-11-01T14:26:00EST">Stanley</ins> <u>Meeaghar</u>
+      </p>
+    </div>
+
+    <div class="edits">
+      <h2>Changes</h2>
+      <ol>
+        <li id="edit1">This tells the reader why you've fallen in love.</li>
+        <li id="edit2">Um, just no.</li>
+      </ol>
+    </div>
+  </body>
+</html>

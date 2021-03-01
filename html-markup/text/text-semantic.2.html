@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <style>
+      ins {
+        padding: 0 0.125em;
+        text-decoration: none;
+        background-color: lightgreen;
+      }
+      del {
+        padding: 0 0.125em;
+        text-decoration: none;
+        background-color: pink;
+      }
+      mark {
+        padding: 0 0.125em;
+      }
+      .note {
+        padding: 0 0.125em;
+        background-color: lightblue;
+      }
+      aside.note {
+        padding: 0.5em 1em;
+      }
+      u {
+        text-decoration: none;
+        border-bottom: 3px red dashed;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <aside class="note">
+        <p>Dear Mr. Meagher,</p>
+        <p>
+          Below I've marked up the edits I think you should make to your...
+          umm... letter.
+        </p>
+        <p>Sincerely</p>
+        <p>John C. Rhea</p>
+        <p>
+          <i
+            >P.S. I will definitely NOT being writing an article about editing
+            on the web using this... letter.</i
+          >
+        </p>
+      </aside>
+      <p>Dear Laura,</p>
+      <p>
+        Ever since<ins cite="#edit1" datetime="2020-11-01T14:17:00EST">
+          the day you brought a peanut butter and banana sandwich to lunch
+          in</ins
+        >
+        second grade, I've been in love with you<del
+          cite="#edit2"
+          datetime="2020-11-01T14:18:00EST"
+        >
+          and followed you everywhere you go</del
+        >.
+      </p>
+
+      <p>
+        Now, dearest Laura, let me list all the ways I love <mark>cheese</mark>
+      </p>
+      <ol>
+        <li>Gorgonzola</li>
+        <li>Limburger</li>
+        <li>
+          Cake<span class="note"> Cheesecake isn't really a "cheese"</span>
+        </li>
+        <li>Muenster</li>
+        <li>Roquefort</li>
+        <li>Brie</li>
+        <li>Feta</li>
+        <li>Cream</li>
+        <li>Colby</li>
+      </ol>
+      <aside class="note">
+        Mr. Meagher, I highly recommend you remove this list of preferred
+        cheeses and replace it with things you love about the woman you are
+        writing to. While I'm sure there are many people for whom your list
+        would be interesting if not welcome, that list rarely includes a
+        romantic interest in the midst of your profession of love. Though,
+        honestly, if she is as perfect for you as you believe, it may be the
+        exact thing you need to test that theory.
+      </aside>
+
+      <p>
+        Please, <u>Lura</u> tell me your answer. Will you wear my mathlete
+        letter jacket?
+      </p>
+      <p>
+        With
+        <del datetime="2020-11-01T14:23:00EST"
+          >super affectionate feelings from my deepest bowels</del
+        ><ins datetime="2020-11-01T14:25:00EST">Love</ins>
+      </p>
+      <p>
+        <ins datetime="2020-11-01T14:26:00EST">Stanley</ins> <u>Meeaghar</u>
+      </p>
+    </div>
+
+    <div class="edits">
+      <h2>Changes</h2>
+      <ol>
+        <li id="edit1">This tells the reader why you've fallen in love.</li>
+        <li id="edit2">Um, just no.</li>
+      </ol>
+    </div>
+  </body>
+</html>

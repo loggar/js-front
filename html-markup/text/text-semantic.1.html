@@ -1,0 +1,225 @@
+<html>
+  <head>
+    <style>
+      body {
+        padding: 2rem;
+      }
+
+      del:hover {
+        background-color: rgba(255, 0, 0, 0.25);
+      }
+      del:hover::after {
+        content: attr(datetime);
+        text-decoration: none;
+        position: absolute;
+        z-index: 100;
+        display: block;
+        background-color: rgba(255, 0, 0, 0.25);
+        padding: 0 0.5em;
+        top: 1em;
+        left: 1em;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+      }
+      ins:hover {
+        background-color: rgba(0, 255, 0, 0.25);
+      }
+      ins:hover::after {
+        content: attr(datetime);
+        text-decoration: none;
+        position: absolute;
+        z-index: 100;
+        display: block;
+        background-color: rgba(0, 255, 0, 0.25);
+        padding: 0 0.5em;
+        top: 1em;
+        left: 1em;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+      }
+
+      #reveal:checked ~ p del::after {
+        content: attr(datetime);
+        text-decoration: none;
+        padding: 0 0.5em;
+        display: inline-block;
+        background-color: rgba(255, 0, 0, 0.25);
+      }
+      #reveal:checked ~ p ins::after {
+        content: attr(datetime);
+        text-decoration: none;
+        padding: 0 0.5em;
+        display: inline-block;
+        background-color: rgba(0, 255, 0, 0.25);
+      }
+
+      .edits {
+        background: #eaeaea;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Copyediting with Semantic HTML</h2>
+
+    <h2>inserted</h2>
+    <p>Dear Laura,</p>
+    <p>
+      Ever since<ins>
+        the day you brought a peanut butter and banana sandwich to lunch in</ins
+      >
+      second grade, I've been in love with you and followed you everywhere you
+      go.
+    </p>
+
+    <h2>deleted</h2>
+    <p>Dear Laura,</p>
+    <p>
+      Ever since<ins>
+        the day you brought a peanut butter and banana sandwich to lunch in</ins
+      >
+      second grade, I've been in love with you<del>
+        and followed you everywhere you go</del
+      >.
+    </p>
+
+    <h2>cite</h2>
+    <p>Dear Laura,</p>
+    <p>
+      Ever since<ins cite="#edit1">
+        the day you brought a peanut butter and banana sandwich to lunch in</ins
+      >
+      second grade, I've been in love with you<del cite="#edit2">
+        and followed you everywhere you go</del
+      >.
+    </p>
+
+    <div class="edits">
+      <h2>Changes</h2>
+      <ol>
+        <li id="edit1">This tells the reader why you've fallen in love.</li>
+        <li id="edit2">Um, just no.</li>
+      </ol>
+    </div>
+
+    <h2>datetime</h2>
+    <p>Dear Laura,</p>
+    <p>
+      Ever since<ins cite="#edit1" datetime="2020-11-01T14:17:00EST">
+        the day you brought a peanut butter and banana sandwich to lunch in</ins
+      >
+      second grade, I've been in love with you<del
+        cite="#edit2"
+        datetime="2020-11-01T14:18:00EST"
+      >
+        and followed you everywhere you go</del
+      >.
+    </p>
+
+    <div class="edits">
+      <h2>Changes</h2>
+      <ol>
+        <li id="edit1">This tells the reader why you've fallen in love.</li>
+        <li id="edit2">Um, just no.</li>
+      </ol>
+    </div>
+
+    <p>Dear Laura,</p>
+    <p>
+      Ever since<ins cite="#edit1" datetime="2020-11-01T14:17:00EST">
+        the day you brought a peanut butter and banana sandwich to lunch in</ins
+      >
+      second grade, I've been in love with you<del
+        cite="#edit2"
+        datetime="2020-11-01T14:18:00EST"
+      >
+        and followed you everywhere you go</del
+      >.
+    </p>
+
+    <div class="edits">
+      <h2>Changes</h2>
+      <ol>
+        <li id="edit1">This tells the reader why you've fallen in love.</li>
+        <li id="edit2">Um, just no.</li>
+      </ol>
+    </div>
+
+    <h2>checkbox</h2>
+    <input id="reveal" type="checkbox" /><label for="reveal"
+      >Show Edit Times</label
+    >
+
+    <p>Dear Laura,</p>
+    <p>
+      Ever since<ins cite="#edit1" datetime="2020-11-01T14:17:00EST">
+        the day you brought a peanut butter and banana sandwich to lunch in</ins
+      >
+      second grade, I've been in love with you<del
+        cite="#edit2"
+        datetime="2020-11-01T14:18:00EST"
+      >
+        and followed you everywhere you go</del
+      >.
+    </p>
+
+    <div class="edits">
+      <h2>Changes</h2>
+      <ol>
+        <li id="edit1">This tells the reader why you've fallen in love.</li>
+        <li id="edit2">Um, just no.</li>
+      </ol>
+    </div>
+
+    <h2>mark</h2>
+    <input id="reveal" type="checkbox" /><label for="reveal"
+      >Show Edit Times</label
+    >
+
+    <p>Dear Laura,</p>
+    <p>
+      Ever since<ins cite="#edit1" datetime="2020-11-01T14:17:00EST">
+        the day you brought a peanut butter and banana sandwich to lunch in</ins
+      >
+      second grade, I've been in love with you<del
+        cite="#edit2"
+        datetime="2020-11-01T14:18:00EST"
+      >
+        and followed you everywhere you go</del
+      >.
+    </p>
+
+    <p>
+      Now, dearest Laura, let me list all the ways I love <mark>cheese</mark>
+    </p>
+    <ol>
+      <li>Gorgonzola</li>
+      <li>Limburger</li>
+      <li>Cake</li>
+      <li>Muenster</li>
+    </ol>
+
+    <div class="edits">
+      <h2>Changes</h2>
+      <ol>
+        <li id="edit1">This tells the reader why you've fallen in love.</li>
+        <li id="edit2">Um, just no.</li>
+      </ol>
+    </div>
+
+    <h2>aside</h2>
+    <aside class="note">
+      Mr. Meagher, I highly recommend you remove this list of preferred cheeses
+      and replace it with things you love about the woman you are writing to.
+      While I'm sure there are many people for whom your list would be
+      interesting if not welcome, that list rarely includes a romantic interest
+      in the midst of your profession of love. Though, honestly, if she is as
+      perfect for you as you believe, it may be the exact thing you need to test
+      that theory.
+    </aside>
+    <span class="note">Cheesecake isn't really a "cheese"</span>
+    <p>
+      Please, <u>Lura</u> tell me your answer. Will you wear my mathlete letter
+      jacket?
+    </p>
+  </body>
+</html>
