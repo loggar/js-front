@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello!</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var lazyBackgrounds = [].slice.call(
+          document.querySelectorAll(".lazy-background")
+        );
+
+        if ("IntersectionObserver" in window) {
+          let lazyBackgroundObserver = new IntersectionObserver(function (
+            entries,
+            observer
+          ) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                lazyBackgroundObserver.unobserve(entry.target);
+              }
+            });
+          });
+
+          lazyBackgrounds.forEach(function (lazyBackground) {
+            lazyBackgroundObserver.observe(lazyBackground);
+          });
+        }
+      });
+    </script>
+    <style>
+      .lazy-background {
+        background-image: url("hero-placeholder.jpg"); /* Placeholder image */
+      }
+
+      .lazy-background.visible {
+        background-image: url("hero.jpg"); /* The final image */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="lazy-background one"></div>
+      <div class="lazy-background two"></div>
+      <div class="lazy-background three"></div>
+    </div>
+  </body>
+</html>
