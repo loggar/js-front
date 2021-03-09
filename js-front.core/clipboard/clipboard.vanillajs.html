@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copy to clipboard</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-size: 1.5rem;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button,
+      input {
+        padding: 20px;
+        border-radius: 20px;
+        outline: none;
+      }
+
+      input {
+        cursor: default;
+        border: 5px solid #2196f3;
+        transition: all 0.3s ease-in-out;
+      }
+
+      input:focus {
+        border-color: #0078d7;
+      }
+
+      button {
+        cursor: pointer;
+        color: #fff;
+        background: #0078d7;
+        border: none;
+        margin-left: 10px;
+        transition: all 0.3s ease-in-out;
+      }
+      button:hover {
+        background: #2196f3;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="copyText" value="cooopy" />
+    <button id="copyBtn"><i class="ph-copy"></i> Copy</button>
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script>
+      const copyBtn = document.getElementById("copyBtn");
+      const copyText = document.getElementById("copyText");
+
+      copyBtn.onclick = () => {
+        copyText.select();
+        document.execCommand("copy");
+      };
+    </script>
+  </body>
+</html>
