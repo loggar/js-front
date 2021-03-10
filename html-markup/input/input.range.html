@@ -1,2 +1,17 @@
 <h5>Range</h5>
 <input type="range" value="0" min="0" max="100" />
+
+<form method="post">
+  <input
+    type="range"
+    name="range"
+    min="0"
+    max="100"
+    step="1"
+    value=""
+    onchange="changeValue(event)"
+  />
+</form>
+<div class="range">
+  <output id="output" name="result"> </output>
+</div>
