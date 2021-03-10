@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title></title>
+  </head>
+
+  <body>
+    <span id="span_1">0</span>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var v = $("span#span_1").html();
+
+        for (var i = 0; i < 10000; i++) {
+          v = $("span#span_1")
+            .html(parseInt(v) + 1)
+            .html();
+          console.log(v);
+        }
+
+        console.log("finish with:", v);
+        console.assert(parseInt(v) === 10000, {
+          v: v,
+          errorMsg: "# is not 10000",
+        });
+      });
+    </script>
+  </body>
+</html>
