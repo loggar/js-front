@@ -1,0 +1,9 @@
+<script type="module">
+  // Top-level await will be enabled by default in Chrome (Chromium) 89. That means the code example doesn’t need the async wrapper function:
+  if (navigator.connection.saveData === false) {
+    const { default: confetti } = await import(
+      "https://cdn.skypack.dev/canvas-confetti@latest"
+    );
+    confetti();
+  }
+</script>
