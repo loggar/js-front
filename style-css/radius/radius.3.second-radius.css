@@ -1,6 +1,0 @@
-.radius {
-  border-radius: 50px 50px 50px 50px / 50px 50px 50px 50px;
-  /* you can read this like this: */
-  border-radius: top-left-up top-right-up bottom-right-down bottom left-down /
-    top-left-left top-right-right bottom-right-right bottom-left-left;
-}

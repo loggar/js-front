@@ -1,0 +1,49 @@
+<html>
+  <style>
+    * {
+      font-family: helvetica;
+    }
+
+    h5 {
+      margin-bottom: 0;
+    }
+
+    p:before {
+      content: "📝";
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li:before {
+      content: attr(data-id) " - ";
+    }
+
+    #image:after {
+      content: url(https://loggar.github.io/note/sample-res/sample.1.png);
+    }
+  </style>
+  <body>
+    <div>
+      <h5>Simple demonstration</h5>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam, quidem!
+      </p>
+    </div>
+
+    <div>
+      <h5>Setting content from the element attribute</h5>
+      <ul>
+        <li data-id="001">An item</li>
+        <li data-id="002">Another item</li>
+        <li data-id="003">Another one bites the dust</li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>Using content with url and after</h5>
+      <div id="image">This is another content</div>
+    </div>
+  </body>
+</html>

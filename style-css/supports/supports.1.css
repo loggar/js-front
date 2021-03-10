@@ -1,9 +1,0 @@
-.main {
-  display: flex;
-}
-
-@supports (display: grid) {
-  .main {
-    display: grid;
-  }
-}
