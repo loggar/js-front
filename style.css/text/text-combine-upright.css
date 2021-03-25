@@ -1,0 +1,14 @@
+sample {
+  /* Keyword values */
+  text-combine-upright: none;
+  text-combine-upright: all;
+
+  /* Digits values */
+  text-combine-upright: digits; /* 2 digits */
+  text-combine-upright: digits 4; /* 4 digits */
+
+  /* Global values */
+  text-combine-upright: inherit;
+  text-combine-upright: initial;
+  text-combine-upright: unset;
+}
