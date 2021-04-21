@@ -1,0 +1,24 @@
+<body>
+  <!-- npm install push.js -S -->
+  <script src="modules.push.js.bin/push.min.js"></script>
+  <script src="modules.push.js.bin/serviceWorker.min.js"></script>
+
+  <script>
+    function start() {
+      Push.create("Hello from Unnati!", {
+        body: "Here's your push notification demo",
+        icon:
+          "https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg",
+        timeout: 4000,
+        onClick: function () {
+          window.focus();
+          this.close();
+        },
+      });
+    }
+  </script>
+  <h1>Push notification implementation</h1>
+  <h3>Click on this button to view notification</h3>
+
+  <a href="javascript:void(0)" onclick="start()">Start</a>
+</body>
