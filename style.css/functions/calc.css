@@ -1,0 +1,11 @@
+.a {
+  width: calc(5px + 100px);
+}
+
+.a2 {
+  width: calc(6em * 8);
+}
+
+.a3 {
+  width: calc(100% - 5px);
+}
