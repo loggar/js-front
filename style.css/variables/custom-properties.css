@@ -1,0 +1,14 @@
+body {
+  --bg1: url(./img/angles-top-left.svg);
+  --bg2: url(./img/angles-top-right.svg);
+  --bg3: url(./img/angles-bottom-right.svg);
+  --bg4: url(./img/angles-bottom-left.svg);
+  --bg5: url(./img/bonus-background.svg);
+
+  background-image: var(--bg1), var(--bg2), var(--bg3), var(--bg4);
+}
+@media (min-width: 1500px) {
+  body {
+    background-image: var(--bg1), var(--bg2), var(--bg3), var(--bg4), var(--bg5);
+  }
+}
