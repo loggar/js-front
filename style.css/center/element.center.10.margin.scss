@@ -1,0 +1,10 @@
+$w: 200px; // SCSS Variable
+$h: 100px; // SCSS Variable
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  // margin: -50px -100px; // Negative margin of half the width and height
+  margin: calc((#{$h} / 2) * -1) calc((#{$w} / 2) * -1);
+}

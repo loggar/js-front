@@ -1,0 +1,8 @@
+.parent {
+  height: 600px; /* Fixed height */
+  padding: 200px 0; /* Fixed vertical padding */
+}
+.center {
+  margin: 0 auto;
+  height: 100%; /* Child takes max height */
+}
