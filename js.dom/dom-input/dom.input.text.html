@@ -1,0 +1,16 @@
+<input type="text" class="username" onkeyup="logInput()" />
+<button class="submit-btn" onClick="submitData()">Submit</button>
+
+<script>
+  const submitData = () => {
+    let username = document.querySelector(".username").value;
+
+    console.log(username); //will print our the text entered in the input field to the console
+  };
+
+  const logInput = () => {
+    let username = document.querySelector(".username").value;
+
+    console.log(username);
+  };
+</script>

@@ -1,0 +1,26 @@
+<input type="text" class="user-email" onkeyup="validateInput()" />
+
+<script>
+  const validateInput = () => {
+    //select the input element
+    let emailInputElement = document.querySelector(".user-email");
+
+    //get the value of the input field
+    let userEmail = emailInputElement.value;
+
+    //decide if the e-mail is valid or not
+    if (!userEmail.includes("@")) {
+      //here we are adding the red border of the e-mail is valid
+      emailInputElement.classList.add("invalid-input");
+
+      //and removing it, if the e-mail becomes invalid again
+      emailInputElement.classList.remove("valid-input");
+    } else {
+      //here we add the green border if it is valid
+      emailInputElement.classList.add("valid-input");
+
+      //and remove the red border
+      emailInputElement.classList.remove("invalid-input");
+    }
+  };
+</script>
