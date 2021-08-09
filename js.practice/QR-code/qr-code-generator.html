@@ -1,0 +1,27 @@
+<html>
+  <body>
+    <input
+      type="text"
+      onchange="generateQR()"
+      id="url"
+      placeholder="Place Your Url"
+    />
+    <button id="makeQR">Generate QR Code</button>
+    <div id="output"></div>
+    <script src="davidshimjs-qrcodejs-04f46c6/qrcode.min.js"></script>
+    <script>
+      let qrcode = new QRCode(document.getElementById("output"));
+      let qrdata = document.getElementById("url");
+      let makeQr = document.getElementById("makeQR");
+
+      function generateQR() {
+        var data = qrdata.value;
+        qrcode.makeCode(data);
+      }
+
+      makeQr.addEventListener("click", function () {
+        generateQR();
+      });
+    </script>
+  </body>
+</html>
