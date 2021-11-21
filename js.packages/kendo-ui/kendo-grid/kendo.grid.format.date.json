@@ -3,5 +3,17 @@
     "field": "DUE_DATE",
     "title": "Due Date",
     "format": "{0:dd/MM/yyyy HH:mm:ss}"
+  },
+  {
+    "field": "REQ_DATE",
+    "title": "Request Date",
+    "width": 120,
+    "template": "#=isNaN((new Date(REQ_DATE)).getTime()) ? '' : kendo.toString(new Date(REQ_DATE), 'dd/MM/yyyy HH:mm:ss' )#"
+  },
+  {
+    "field": "INS_DATE",
+    "title": "Create Date",
+    "width": 140,
+    "template": "#= typeof INS_DATE == 'undefined' || INS_DATE == null ? '' : kendo.toString(new Date(INS_DATE), 'dd/MM/yyyy HH:mm:ss')#"
   }
 ]

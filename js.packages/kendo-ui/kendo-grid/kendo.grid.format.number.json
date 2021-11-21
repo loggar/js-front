@@ -1,0 +1,14 @@
+[
+  {
+    "field": "RATE_A",
+    "title": "Rate A",
+    "width": 80,
+    "template": "#=kendo.format(\"{0:p}\", RATE_A / 100)#"
+  },
+  {
+    "field": "AVG_B",
+    "title": "Average B",
+    "width": 100,
+    "template": "#=kendo.format('{0:n2}', AVG_B)#"
+  }
+]
